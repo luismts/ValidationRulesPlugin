@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Luis Matos</Authors>
+    <Company>Luis Matos</Company>
+    <Description>Create and validate rules for your properties from your shared code for all your app!</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions\ExtendedBindableObject.cs" />
+    <Compile Remove="ValidatableObject.Forms.cs" />
+  </ItemGroup>
+
+</Project>
