@@ -9,13 +9,14 @@ Improve the quality of your data using validation rules. Validation rules verify
 Get started by reading through the [ValidationRules Plugin documentation]().
 
 ### NuGet
-* [Xam.Plugins.ValidationRules]() [![NuGet]()]()
+* Available on NuGet: [Plugin.ValidationRules](https://www.nuget.org/packages/Plugin.ValidationRules/) [![NuGet](https://img.shields.io/nuget/v/Plugin.ValidationRules.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.ValidationRules/)
+* Build status: ![Build status](https://img.shields.io/badge/build-succeded-brightgreen.svg)
 
 #### Platform Support
 
 |Platform|Version|
 | ------------------- | :-----------: |
-|.NET Core|2.0+|
+|.NET Standard|2.0+|
 
 #### ValidationsRules or MyOwnImplementation
 I get this question a lot, so here it is from a recent issue opened up. This plugin helps you maintain and better test your code in a scalable way by showing the results directly in the UI. This ensures the fastest, most secure, and reliable creation and editing validation rules per application. Additionally, it works with **any Xamarin application**, not just Xamarin.Forms.
