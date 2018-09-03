@@ -31,4 +31,4 @@ Please browse open issues, if you're looking to fix something, it's possible tha
 Please fill out the [pull request template](.github/PULL_REQUEST_TEMPLATE.md) when you send one.
 
 ## License
-The MIT License (MIT) see [License file](LICENSE)
+The MIT License (MIT) see [License](LICENSE) file.
