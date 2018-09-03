@@ -3,6 +3,8 @@
 
 Create and validate rules for your properties for all your app!
 
+Improve the quality of your data using validation rules. Validation rules verify that the data the user enters into record meets the standards you specify before the user can save the record. A validation rule can contain a formula or expression that evaluates the data in one or more fields and returns a value "True" or "False". Validation rules also include an error message to display to the user when the rule returns a value "False" due to an invalid value.
+
 ## Documentation :book: 
 Get started by reading through the [ValidationRules Plugin documentation]().
 
