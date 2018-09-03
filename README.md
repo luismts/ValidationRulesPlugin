@@ -1,13 +1,15 @@
-# Validation Rules Plugin for Xamarin and Windows
+# Validation Rules Plugin for Xamarin and Windows 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](pull/new/master) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg?style=flat-square)](graphs/commit-activity) [![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](#contribution) [![licence](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+
 Create and validate rules for your properties for all your app!
 
-## Documentation
+## Documentation :book: 
 Get started by reading through the [ValidationRules Plugin documentation]().
 
-## NuGet
+### NuGet
 * [Xam.Plugins.ValidationRules]() [![NuGet]()]()
 
-**Platform Support**
+#### Platform Support
 
 |Platform|Version|
 | ------------------- | :-----------: |
@@ -20,7 +22,7 @@ Even if you do all the implementation of validation rules it will take a little 
 
 To me that isn't as reliable as having an abstraction that does all the work for me.
 
-# Contribution
+## Contribution :cool:
 
 Thanks you for your interest in contributing to **ValidationRules** plugin! In this section we'll outline what you need to know about contributing and how to get started.
 
@@ -30,5 +32,5 @@ Please browse open issues, if you're looking to fix something, it's possible tha
 ### Pull requests
 Please fill out the [pull request template](.github/PULL_REQUEST_TEMPLATE.md) when you send one.
 
-## License
+## License :page_with_curl:
 The MIT License (MIT) see [License](LICENSE) file.
