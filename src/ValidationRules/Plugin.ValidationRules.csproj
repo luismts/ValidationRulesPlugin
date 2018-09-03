@@ -1,22 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    
+    <!-- Product -->
+    <AssemblyName>Plugin.ValidationRules</AssemblyName>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>luismts</Authors>
-    <Company>Luis Matos</Company>
-    <Description>Create and validate properties rules for all your app.
-
-Improve the quality of your data using validation rules. Validation rules verify that the data the user enters into record meets the standards you specify before the user can save the record. A validation rule can contain a formula or expression that evaluates the data in one or more fields and returns a value "True" or "False". Validation rules also include an error message to display to the user when the rule returns a value "False" due to an invalid value.</Description>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <Copyright>Copyright 2018</Copyright>
+    <Version>1.0.0.0</Version>
+    
+    <!-- Package -->
+    <PackageId>Plugin.ValidationRules</PackageId>
     <PackageLicenseUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/luismts/ValidationRulesPlugin</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/luismts/ValidationRulesPlugin</RepositoryUrl>
-    <PackageTags>validation, rules, validation-rules, xam, xamarin, plugin, forms, xamarin.forms, ios, uwp, android, windows</PackageTags>
-    <NeutralLanguage></NeutralLanguage>
     <PackageIconUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/img/icon.png?raw=true</PackageIconUrl>
-    <PackageId>Xam.Plugins.ValidationRules</PackageId>
-    <SignAssembly>false</SignAssembly>
+    <PackageTags>validate, valid, validation, rules, validation-rules, xam, xamarin, plugin, forms, xamarin.forms, ios, uwp, android, windows</PackageTags>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Copyright>Copyright 2018</Copyright>
+    <Title>Validation Rules Plugin for Xamarin and Windows</Title>
+    <Description>Create and validate properties rules for all your app.
+
+Improve the quality of your data using validation rules. Validation rules verify that the data the user enters into record meets the standards you specify before the user can save the record. A validation rule can contain a formula or expression that evaluates the data in one or more fields and returns a value "True" or "False". Validation rules also include an error message to display to the user when the rule returns a value "False" due to an invalid value.
+</Description>
+    <Summary>Create and validate properties rules for all your Xamarin and Windows Apps.</Summary>
+    <NeutralLanguage>en</NeutralLanguage>
+    <LangVersion>default</LangVersion>
+    
+    <!-- Repository -->
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/luismts/ValidationRulesPlugin</RepositoryUrl>
+
+    <!-- Author: Luis Matos luismts.com -->
+    <Authors>luismts</Authors>
+    <Company>Luis Matos</Company>
+
+    <!-- Assembly -->
+    <RootNamespace>Plugin.ValidationRules</RootNamespace>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <SignAssembly>false</SignAssembly>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
   </PropertyGroup>
 
   <ItemGroup>
