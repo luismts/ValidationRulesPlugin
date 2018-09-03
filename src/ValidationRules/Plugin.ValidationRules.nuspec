@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Validation Rules Plugin for Xamarin and Windows</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/luismts/ValidationRulesPlugin</projectUrl>
+    <iconUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/img/icon.png?raw=true</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <summary>Create and validate properties rules for all your Xamarin and Windows Apps.</summary>
+    <copyright>Copyright 2018</copyright>
+    <tags>validate valid validation rules validation-rules xam xamarin plugin forms xamarin.forms ios, uwp android windows</tags>
+    <dependencies>
+      <group targetFramework="netstandard2.0">
+        <dependency id="NETStandard.Library" version="2.0.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

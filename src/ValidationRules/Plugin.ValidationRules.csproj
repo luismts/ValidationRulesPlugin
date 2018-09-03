@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,8 +12,11 @@ Improve the quality of your data using validation rules. Validation rules verify
     <RepositoryUrl>https://github.com/luismts/ValidationRulesPlugin</RepositoryUrl>
     <PackageTags>validation, rules, validation-rules, xam, xamarin, plugin, forms, xamarin.forms, ios, uwp, android, windows</PackageTags>
     <NeutralLanguage></NeutralLanguage>
-    <PackageIconUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/img/icon.svg</PackageIconUrl>
+    <PackageIconUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/img/icon.png?raw=true</PackageIconUrl>
     <PackageId>Xam.Plugins.ValidationRules</PackageId>
+    <SignAssembly>false</SignAssembly>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright 2018</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
