@@ -5,6 +5,11 @@
     <Authors>Luis Matos</Authors>
     <Company>Luis Matos</Company>
     <Description>Create and validate rules for your properties from your shared code for all your app!</Description>
+    <PackageLicenseUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/luismts/ValidationRulesPlugin</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/luismts/ValidationRulesPlugin</RepositoryUrl>
+    <PackageTags>validation, rules, validation-rules, xam, xamarin, plugin, forms, xamarin.forms, ios, uwp, android, windows</PackageTags>
+    <NeutralLanguage>en-MO</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
