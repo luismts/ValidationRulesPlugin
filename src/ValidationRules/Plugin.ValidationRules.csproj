@@ -2,14 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Luis Matos</Authors>
+    <Authors>luismts</Authors>
     <Company>Luis Matos</Company>
-    <Description>Create and validate rules for your properties from your shared code for all your app!</Description>
+    <Description>Create and validate properties rules for all your app.
+
+Improve the quality of your data using validation rules. Validation rules verify that the data the user enters into record meets the standards you specify before the user can save the record. A validation rule can contain a formula or expression that evaluates the data in one or more fields and returns a value "True" or "False". Validation rules also include an error message to display to the user when the rule returns a value "False" due to an invalid value.</Description>
     <PackageLicenseUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/luismts/ValidationRulesPlugin</PackageProjectUrl>
     <RepositoryUrl>https://github.com/luismts/ValidationRulesPlugin</RepositoryUrl>
     <PackageTags>validation, rules, validation-rules, xam, xamarin, plugin, forms, xamarin.forms, ios, uwp, android, windows</PackageTags>
-    <NeutralLanguage>en-MO</NeutralLanguage>
+    <NeutralLanguage></NeutralLanguage>
+    <PackageIconUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/img/icon.svg</PackageIconUrl>
+    <PackageId>Xam.Plugins.ValidationRules</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
