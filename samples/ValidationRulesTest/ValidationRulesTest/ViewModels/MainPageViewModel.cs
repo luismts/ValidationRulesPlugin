@@ -56,6 +56,7 @@ namespace ValidationRulesTest.ViewModels
             var isValidEmail = _email.Validate();
 
             return isValidName && isValidLastname && isValidEmail;
-        }
+        }
+
     }
 }
