@@ -11,7 +11,7 @@ namespace ValidationRulesTest
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Example1();
         }
 
         protected override void OnStart()

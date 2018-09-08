@@ -16,4 +16,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\ValidationRules\Plugin.ValidationRules.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Example1.xaml.cs">
+      <DependentUpon>Example1.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

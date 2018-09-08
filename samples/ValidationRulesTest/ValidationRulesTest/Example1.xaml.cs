@@ -4,14 +4,14 @@ using ValidationRulesTest.ViewModels;
 
 namespace ValidationRulesTest
 {
-    public partial class MainPage : ContentPage
+    public partial class Example1 : ContentPage
     {
-        MainPageViewModel _context;
-        public MainPage()
+        Example1ViewModel _context;
+        public Example1()
         {
             InitializeComponent();
 
-            _context = new ViewModels.MainPageViewModel();
+            _context = new ViewModels.Example1ViewModel();
             BindingContext = _context;
         }
         
