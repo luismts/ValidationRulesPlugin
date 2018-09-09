@@ -6,11 +6,16 @@ namespace ValidationRulesTest.ViewModels
 {
     public class Example1ViewModel : ExtendedPropertyChanged
     {
+
+        ValidationUnit _unit1;
+
         public Example1ViewModel()
         {
             _name = new ValidatableObject<string>();
             _lastname = new ValidatableObject<string>();
             _email = new ValidatableObject<string>();
+
+            _unit1 = new ValidationUnit(_name, _lastname, _email);
 
             AddValidations();
         }
@@ -36,6 +41,7 @@ namespace ValidationRulesTest.ViewModels
             set => SetProperty(ref _email, value);
         }
 
+
         private void AddValidations()
         {
             // Name validations
@@ -51,11 +57,12 @@ namespace ValidationRulesTest.ViewModels
 
         public bool Validate()
         {
-            var isValidName = _name.Validate();
-            var isValidLastname = _lastname.Validate();
-            var isValidEmail = _email.Validate();
+            //var isValidName = _name.Validate();
+            //var isValidLastname = _lastname.Validate();
+            //var isValidEmail = _email.Validate();
 
-            return isValidName && isValidLastname && isValidEmail;
+            //return isValidName && isValidLastname && isValidEmail;
+            return _unit1.Validate();
         }
 
     }
