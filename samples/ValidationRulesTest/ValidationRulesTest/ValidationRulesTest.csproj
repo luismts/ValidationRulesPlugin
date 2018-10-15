@@ -21,5 +21,8 @@
     <Compile Update="Example1.xaml.cs">
       <DependentUpon>Example1.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Example2.xaml.cs">
+      <DependentUpon>Example2.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
