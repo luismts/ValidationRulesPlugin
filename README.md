@@ -5,8 +5,12 @@ Create and validate rules for your properties for all your app!
 
 Improve the quality of your data using validation rules. Validation rules verify that the data the user enters into record meets the standards you specify before the user can save the record. A validation rule can contain a formula or expression that evaluates the data in one or more fields and returns a value "True" or "False". Validation rules also include an error message to display to the user when the rule returns a value "False" due to an invalid value.
 
+<p align="center">
+<img src="/img/Plugin.ValidationRules%20test.gif" width="30%" /> 
+</p>
+
 ## Documentation :book: 
-Get started by reading through the [ValidationRules Plugin documentation]().
+Get started by reading through the [ValidationRules Plugin documentation](https://luismts.com/blog/xamarin/validation-rules-xamarin-windows/). You can also add [Validation Rule Templete extension](https://luismts.com/blog/extension/validation-rule-template-extension/) for Visual Studio to make the work much easier and faster.
 
 ### NuGet
 * Available on NuGet: [Plugin.ValidationRules](https://www.nuget.org/packages/Plugin.ValidationRules/) [![NuGet](https://img.shields.io/nuget/v/Plugin.ValidationRules.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.ValidationRules/)
@@ -25,6 +29,12 @@ Even if you do all the implementation of validation rules it will take a little 
 
 To me that isn't as reliable as having an abstraction that does all the work for me.
 
+### Extension
+* Available on Visual Studio Marketplace: [Validation Rule Template](https://marketplace.visualstudio.com/items?itemName=LuisMatos.ValidationRuleTemplate) [![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/LuisMatos.ValidationRuleTemplate.svg)](https://marketplace.visualstudio.com/items?itemName=LuisMatos.ValidationRuleTemplate)
+
+* Build status: ![Build status](https://img.shields.io/badge/build-succeded-brightgreen.svg)
+
+
 ## Contribution :cool:
 
 Thanks you for your interest in contributing to **ValidationRules** plugin! In this section we'll outline what you need to know about contributing and how to get started.
@@ -34,6 +44,12 @@ Please browse open issues, if you're looking to fix something, it's possible tha
 
 ### Pull requests
 Please fill out the [pull request template](.github/PULL_REQUEST_TEMPLATE.md) when you send one.
+
+### Want To Support This Project?
+Just be active by submitting bugs, features, and sending those pull requests down! 
+
+### Want to go further? 
+See what I have [done](https://luismts.com).
 
 ## License :page_with_curl:
 The MIT License (MIT) see [License](LICENSE) file.
