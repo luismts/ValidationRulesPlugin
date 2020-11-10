@@ -33,7 +33,7 @@ namespace ValidationRulesTest.ViewModels
 
             //Email validations
             Email.Validations.Add(new IsNotNullOrEmptyRule<string>{ ValidationMessage = "A email is required." });
-            Email.Validations.Add(new EmailRule<string> { ValidationMessage = "Email is not valid." });
+            Email.Validations.Add(new EmailRule());
         }
 
         public bool Validate()
