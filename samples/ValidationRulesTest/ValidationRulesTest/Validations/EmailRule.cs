@@ -3,16 +3,17 @@ using System.Text.RegularExpressions;
 
 namespace ValidationRulesTest.Validations
 {
-    public class EmailRule<T> : IValidationRule<T>
+    public class EmailRule : IValidationRule<string>
     {
 
-        public string ValidationMessage { get; set; }
+        public string ValidationMessage { get; set; } = "Email is not valid.";
 
-        public bool Check(T value)
+        public bool Check(string value)
         {
 
             if (value == null)
             {
+                ValidationMessage = "A email is required.";
                 return false;
             }
 
@@ -20,6 +21,9 @@ namespace ValidationRulesTest.Validations
 
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Match match = regex.Match(str);
+
+            if (!match.Success)
+                ValidationMessage = "Email is not valid.";
 
             return match.Success;
         }
