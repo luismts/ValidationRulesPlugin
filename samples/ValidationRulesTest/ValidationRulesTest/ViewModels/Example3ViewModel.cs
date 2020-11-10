@@ -24,11 +24,6 @@ namespace ValidationRulesTest.ViewModels
 
         public bool Validate()
         {
-            //var isValidName = _name.Validate();
-            //var isValidLastname = _lastname.Validate();
-            //var isValidEmail = _email.Validate();
-
-            //return isValidName && isValidLastname && isValidEmail;
             return _unit1.Validate();
         }
 
