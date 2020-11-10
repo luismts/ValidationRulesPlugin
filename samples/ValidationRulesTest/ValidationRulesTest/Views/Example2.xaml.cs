@@ -25,23 +25,8 @@ namespace ValidationRulesTest
             }
             else
             {
-                DisplayAlert(":(", "This form is not valid", "OK");
+                DisplayAlert(":(", $"This form is not valid. {_context.User.Error}", "OK");
             }
-        }
-
-        private void nameEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-            _context.User.Name.Validate();
-        }
-
-        private void lastnameEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-            _context.User.LastName.Validate();
-        }
-
-        private void emailEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-            _context.User.Email.Validate();
         }
     }
 }

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ValidationRulesTest.Views.Examples"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" />
+
+            <Button
+                x:Name="example1"
+                Clicked="example1_Clicked"
+                Text="Example 1" />
+            <Button
+                x:Name="example2"
+                Clicked="example2_Clicked"
+                Text="Example 2" />
+            <Button
+                x:Name="example3"
+                Clicked="example3_Clicked"
+                Text="Example 3" />
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

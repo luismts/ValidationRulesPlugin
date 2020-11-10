@@ -1,4 +1,5 @@
 ﻿using System;
+using ValidationRulesTest.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,8 +12,7 @@ namespace ValidationRulesTest
         {
             InitializeComponent();
 
-            MainPage = new Example1();
-            //MainPage = new Example2();
+            MainPage = new Examples();
         }
 
         protected override void OnStart()

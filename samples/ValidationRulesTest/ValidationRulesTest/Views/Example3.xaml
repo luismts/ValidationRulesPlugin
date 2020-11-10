@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ValidationRulesTest"
+             x:Class="ValidationRulesTest.Example3">
+
+    <StackLayout Padding="16">
+        
+        <Label Text="Validation Rules Test" Margin="0,0,0,16" />
+
+        <Entry x:Name="nameEntry" Text="{Binding User.Name.Value, Mode=TwoWay}" 
+               Placeholder="Name" Unfocused="nameEntry_Unfocused" />
+        <Label Text="{Binding User.Name.Error}" TextColor="Red" HorizontalTextAlignment="Center" />
+
+        <Entry x:Name="lastnameEntry" Text="{Binding User.LastName.Value, Mode=TwoWay}" 
+               Placeholder="LastName" Unfocused="lastnameEntry_Unfocused" />
+        <Label Text="{Binding User.LastName.Error}" TextColor="Red" HorizontalTextAlignment="Center" />
+
+        <Entry x:Name="emailEntry" Text="{Binding User.Email.Value, Mode=TwoWay}" 
+               Placeholder="Email" Unfocused="emailEntry_Unfocused" />
+        <Label Text="{Binding User.Email.Error}" TextColor="Red" HorizontalTextAlignment="Center" />
+        
+        <Button Text="Validate" Clicked="Button_Clicked" />
+        
+    </StackLayout>
+
+</ContentPage>
