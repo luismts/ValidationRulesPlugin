@@ -7,15 +7,8 @@ namespace ValidationRulesTest.Models
 {
     public class User
     {
-        public User()
-        {
-            LastName = new ValidatableObject<string>();
-            Name = new ValidatableObject<string>();
-            Email = new ValidatableObject<string>();
-        }
-
-        public ValidatableObject<string> LastName { get; set; }
-        public ValidatableObject<string> Name { get; set; }
-        public ValidatableObject<string> Email { get; set; }
+        public string LastName { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
     }
 }
