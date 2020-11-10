@@ -29,7 +29,7 @@ namespace ValidationRulesTest.Models
         public ValidatableObject<string> Name { get; set; }
         public ValidatableObject<string> Email { get; set; }
 
-        public User UserCast()
+        public User Cast()
         {
             return new User
             {
