@@ -22,15 +22,15 @@ namespace ValidationRulesTest.ViewModels
             set => SetProperty(ref _user, value);
         }
 
-
         private void AddValidations()
         {
-            // User validations
+            // Your validations goes here
             _user.Validations.Add(new UserRule());
         }
 
         public bool Validate()
         {
+            // Your logic goes here
             return User.Validate();
         }
 
