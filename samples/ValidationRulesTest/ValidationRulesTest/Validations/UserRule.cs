@@ -18,7 +18,7 @@ namespace ValidationRulesTest.Validations
 
             if (string.IsNullOrEmpty(value.Name))
             {
-                ValidationMessage = "A email is required.";
+                ValidationMessage = "A name is required.";
                 return false;
             }
 
