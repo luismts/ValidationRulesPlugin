@@ -10,6 +10,7 @@ namespace ValidationRulesTest.ViewModels
         public Example2ViewModel()
         {
             _user = new ValidatableObject<User>();
+            _user.Value = new User();
             
             AddValidations();
         }
