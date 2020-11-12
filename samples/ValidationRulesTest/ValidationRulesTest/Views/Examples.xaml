@@ -2,13 +2,17 @@
 <ContentPage
     x:Class="ValidationRulesTest.Views.Examples"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ValidationRules Examples">
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="16" VerticalOptions="Center">
             <Label
+                Margin="8"
+                FontAttributes="Bold"
+                FontSize="Large"
                 HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
+                Text="Building better User Experience!"
                 VerticalOptions="CenterAndExpand" />
 
             <Button
