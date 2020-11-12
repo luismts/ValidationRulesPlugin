@@ -18,10 +18,6 @@
             x:Name="lastnameEntry"
             Placeholder="LastName"
             Text="{Binding User.Value.LastName, Mode=TwoWay}" />
-        <Label
-            HorizontalTextAlignment="Center"
-            Text="{Binding User.LastName.Error}"
-            TextColor="Red" />
 
         <Entry
             x:Name="emailEntry"
