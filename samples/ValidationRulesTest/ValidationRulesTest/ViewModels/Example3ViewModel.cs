@@ -7,12 +7,10 @@ namespace ValidationRulesTest.ViewModels
 {
     public class Example3ViewModel : ExtendedPropertyChanged
     {
-        ValidationUnit _unit1;
 
         public Example3ViewModel()
         {
             _user = new UserValidator();
-            _unit1 = new ValidationUnit(_user.Name, _user.LastName, _user.Email);
         }
 
         private UserValidator _user;
@@ -24,7 +22,8 @@ namespace ValidationRulesTest.ViewModels
 
         public bool Validate()
         {
-            return _unit1.Validate();
+            // Your logic goes here
+            return User.Validate();
         }
 
     }
