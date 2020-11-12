@@ -12,7 +12,7 @@ namespace ValidationRulesTest
         {
             InitializeComponent();
 
-            MainPage = new Examples();
+            MainPage = new NavigationPage(new Examples());
         }
 
         protected override void OnStart()
