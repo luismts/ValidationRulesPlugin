@@ -10,7 +10,7 @@ Improve the quality of your data using validation rules. Validation rules verify
 </p>
 
 ## Documentation :book: 
-Get started by reading through the [ValidationRules Plugin documentation](https://luismts.com/blog/xamarin/validation-rules-xamarin-windows/). You can also add [Validation Rule Templete extension](https://luismts.com/blog/extension/validation-rule-template-extension/) for Visual Studio to make the work much easier and faster.
+Get started by reading through the [ValidationRules Plugin documentation](https://luismts.com/blog/validation-rules-xamarin-windows/). You can also add [Validation Rule Templete extension](https://luismts.com/blog/validation-rule-template-extension/) for Visual Studio to make the work much easier and faster.
 
 ### NuGet
 * Available on NuGet: [Plugin.ValidationRules](https://www.nuget.org/packages/Plugin.ValidationRules/) [![NuGet](https://img.shields.io/nuget/v/Plugin.ValidationRules.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.ValidationRules/)
