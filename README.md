@@ -6,11 +6,17 @@ Create and validate rules for your properties for all your app!
 Improve the quality of your data using validation rules. Validation rules verify that the data the user enters into record meets the standards you specify before the user can save the record. A validation rule can contain a formula or expression that evaluates the data in one or more fields and returns a value "True" or "False". Validation rules also include an error message to display to the user when the rule returns a value "False" due to an invalid value.
 
 <p align="center">
-<img src="/img/Plugin.ValidationRules%20test.gif" width="30%" /> 
+<img src="/Assets/Plugin.ValidationRules%20test.gif" width="30%" /> 
 </p>
 
 ## Documentation :book: 
 Get started by reading through the [ValidationRules Plugin documentation](https://luismts.com/blog/xamarin/validation-rules-xamarin-windows/). You can also add [Validation Rule Templete extension](https://luismts.com/blog/extension/validation-rule-template-extension/) for Visual Studio to make the work much easier and faster.
+
+Don't miss this video! :arrow_down_small: :arrow_down_small: :arrow_down_small:
+
+[![Watch the video](https://img.youtube.com/vi/HMsKzIqCYJg/maxresdefault.jpg)](https://youtu.be/HMsKzIqCYJg)
+
+Consult the presentation [here](/Assets/validation%20rules%20xamarin%20-%20@luismatosluna.pdf).
 
 ### NuGet
 * Available on NuGet: [Plugin.ValidationRules](https://www.nuget.org/packages/Plugin.ValidationRules/) [![NuGet](https://img.shields.io/nuget/v/Plugin.ValidationRules.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.ValidationRules/)
