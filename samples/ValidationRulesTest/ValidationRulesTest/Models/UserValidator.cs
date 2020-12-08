@@ -12,9 +12,9 @@ namespace ValidationRulesTest.Models
 
         public UserValidator()
         {
-            LastName = new ValidatableObject<string>();
-            Name = new ValidatableObject<string>();
-            Email = new ValidatableObject<string>();
+            LastName = new Validatable<string>();
+            Name = new Validatable<string>();
+            Email = new Validatable<string>();
 
             _unit1 = new ValidationUnit(Name, LastName, Email);
 
@@ -29,9 +29,9 @@ namespace ValidationRulesTest.Models
             Email.Validations.Add(new EmailRule());
         }
 
-        public ValidatableObject<string> LastName { get; set; }
-        public ValidatableObject<string> Name { get; set; }
-        public ValidatableObject<string> Email { get; set; }
+        public Validatable<string> LastName { get; set; }
+        public Validatable<string> Name { get; set; }
+        public Validatable<string> Email { get; set; }
 
         public bool Validate() 
         { 

@@ -10,12 +10,12 @@ namespace Plugin.ValidationRules
     /// Provides a way for an object to be validated.
     /// </summary>
     /// <typeparam name="T">Type of the data to be validated</typeparam>
-    public class ValidatableObject<T> : ExtendedPropertyChanged, IValidity, IDisposable
+    public class Validatable<T> : ExtendedPropertyChanged, IValidity, IDisposable
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ValidatableObject{T}"/> class.
+        /// Initializes a new instance of the <see cref="Validatable{T}"/> class.
         /// </summary>
-        public ValidatableObject()
+        public Validatable()
         {
             _isValid = true;
             _errors = new List<string>();
@@ -146,7 +146,7 @@ namespace Plugin.ValidationRules
 
         #endregion
 
-        ~ValidatableObject()
+        ~Validatable()
         {
             // The object went out of scope and finalized is called
             // Lets call dispose in to release unmanaged resources 

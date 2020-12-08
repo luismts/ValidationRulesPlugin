@@ -9,18 +9,18 @@ namespace ValidationRulesTest.ViewModels
 
         public Example1ViewModel()
         {
-            Name = new ValidatableObject<string>();
-            LastName = new ValidatableObject<string>();
-            Email = new ValidatableObject<string>();
+            Name = new Validatable<string>();
+            LastName = new Validatable<string>();
+            Email = new Validatable<string>();
 
             _unit1 = new ValidationUnit(Name, LastName, Email);
 
             AddValidations();
         }
 
-        public ValidatableObject<string> LastName { get; set; }
-        public ValidatableObject<string> Name { get; set; }
-        public ValidatableObject<string> Email { get; set; }
+        public Validatable<string> LastName { get; set; }
+        public Validatable<string> Name { get; set; }
+        public Validatable<string> Email { get; set; }
 
 
         private void AddValidations()
