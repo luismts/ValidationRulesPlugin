@@ -40,6 +40,9 @@ namespace Plugin.ValidationRules
         /// </summary>
         public List<IValidationRule<T>> Validations => _validations;
 
+        /// <summary>
+        /// Reference formatter is attempting to format the property.
+        /// </summary>
         public IValueFormatter<T> ValueFormatter { private get; set; }
 
         private List<string> _errors;
