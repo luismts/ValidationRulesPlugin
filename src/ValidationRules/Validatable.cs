@@ -40,6 +40,7 @@ namespace Plugin.ValidationRules
         /// </summary>
         public List<IValidationRule<T>> Validations => _validations;
 
+        public IRuleValueConverter<T> ValueConverter { private get; set; }
 
         private List<string> _errors;
         /// <summary>
@@ -75,8 +76,15 @@ namespace Plugin.ValidationRules
             set 
             {
                 var oldValue = _value;
-                SetProperty(ref _value, value);
-                ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = value });
+                T newValue;
+
+                if (ValueConverter != null)
+                    newValue = ValueConverter.Convert(value);
+                else
+                    newValue = value;
+
+                SetProperty(ref _value, newValue);
+                ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = newValue });
             }
         }
 
