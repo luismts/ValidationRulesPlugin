@@ -64,7 +64,12 @@ namespace Plugin.ValidationRules
         public T Value
         {
             get => _value;
-            set => SetProperty(ref _value, value);
+            set 
+            {
+                var oldValue = _value;
+                SetProperty(ref _value, value);
+                ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = value });
+            }
         }
 
         private bool _isValid;
@@ -79,7 +84,11 @@ namespace Plugin.ValidationRules
         #endregion
 
         #region Commands
-        public ICommand ValidateCommand { get; }
+        public ICommand ValidateCommand { get; private set; }
+        #endregion
+
+        #region Events
+        public event EventHandler<ValueChangedEventArgs<T>> ValueChanged;
         #endregion
 
         #region Methods
@@ -108,6 +117,7 @@ namespace Plugin.ValidationRules
             _validations?.Clear();
             _errors?.Clear();
             _value = default(T);
+            ValidateCommand = null;
         }
         #endregion
 
