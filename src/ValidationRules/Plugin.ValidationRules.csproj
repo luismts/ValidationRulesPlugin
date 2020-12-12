@@ -51,7 +51,6 @@ Improve the quality of your data using validation rules. Validation rules verify
 
   <ItemGroup>
     <Folder Include="Formatters\" />
-    <Folder Include="Rules\" />
   </ItemGroup>
 
 </Project>
