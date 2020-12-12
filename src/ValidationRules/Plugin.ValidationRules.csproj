@@ -49,4 +49,9 @@ Improve the quality of your data using validation rules. Validation rules verify
     <Compile Remove="ValidatableObject.Forms.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Formatters\" />
+    <Folder Include="Rules\" />
+  </ItemGroup>
+
 </Project>
