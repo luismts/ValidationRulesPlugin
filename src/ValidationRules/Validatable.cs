@@ -24,6 +24,14 @@ namespace Plugin.ValidationRules
             ValidateCommand = new RelayCommand(_ => Validate());
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Validatable{T}"/> class that takes a variable number of <see cref="IValidationRule{T}"/>.
+        /// </summary>
+        public Validatable(params IValidationRule<T>[] validations) : base()
+        {
+            _validations.AddRange(validations);
+        }
+
         #region Properties
 
         private readonly List<IValidationRule<T>> _validations;
