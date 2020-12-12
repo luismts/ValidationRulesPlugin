@@ -3,8 +3,8 @@ using System.Globalization;
 
 namespace Plugin.ValidationRules.Interfaces
 {
-    public interface IRuleValueConverter<T>
+    public interface IValueFormatter<T>
     {
-        T Convert(T value);
+        T Format(T value);
     }
 }

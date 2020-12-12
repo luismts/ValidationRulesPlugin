@@ -40,7 +40,7 @@ namespace Plugin.ValidationRules
         /// </summary>
         public List<IValidationRule<T>> Validations => _validations;
 
-        public IRuleValueConverter<T> ValueConverter { private get; set; }
+        public IValueFormatter<T> ValueFormatter { private get; set; }
 
         private List<string> _errors;
         /// <summary>
@@ -78,8 +78,8 @@ namespace Plugin.ValidationRules
                 var oldValue = _value;
                 T newValue;
 
-                if (ValueConverter != null)
-                    newValue = ValueConverter.Convert(value);
+                if (ValueFormatter != null)
+                    newValue = ValueFormatter.Format(value);
                 else
                     newValue = value;
 
