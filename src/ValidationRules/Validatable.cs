@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using Plugin.ValidationRules.Extensions;
 using Plugin.ValidationRules.Interfaces;
 
@@ -20,6 +21,7 @@ namespace Plugin.ValidationRules
             _isValid = true;
             _errors = new List<string>();
             _validations = new List<IValidationRule<T>>();
+            ValidateCommand = new RelayCommand(_ => Validate());
         }
 
         #region Properties
@@ -74,6 +76,10 @@ namespace Plugin.ValidationRules
             get => _isValid;
             set => SetProperty(ref _isValid, value);
         }
+        #endregion
+
+        #region Commands
+        public ICommand ValidateCommand { get; }
         #endregion
 
         #region Methods
