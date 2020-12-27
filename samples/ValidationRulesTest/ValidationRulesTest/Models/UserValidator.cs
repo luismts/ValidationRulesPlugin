@@ -1,10 +1,11 @@
 ﻿using Plugin.ValidationRules;
+using Plugin.ValidationRules.Extensions;
 using Plugin.ValidationRules.Interfaces;
 using ValidationRulesTest.Validations;
 
 namespace ValidationRulesTest.Models
 {
-    public class UserValidator : IMapperValidator<UserValidator, User>
+    public class UserValidator : IMapperValidator<User>
     {
         ValidationUnit _unit1;
 
@@ -37,14 +38,16 @@ namespace ValidationRulesTest.Models
             return _unit1.Validate(); 
         }
 
-        public User Map(UserValidator input)
+        public User Map()
         {
-            return new User
-            {
-                Name = this.Name.Value,
-                LastName = this.LastName.Value,
-                Email = this.Email.Value
-            };
+            //return new User
+            //{
+            //    Name = this.Name.Value,
+            //    LastName = this.LastName.Value,
+            //    Email = this.Email.Value
+            //};
+
+            return this.MapValidator<User, UserValidator>();
         }
     }
 }
