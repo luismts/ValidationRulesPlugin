@@ -22,6 +22,8 @@ namespace ValidationRulesTest.ViewModels
 
         public bool Validate()
         {
+            var modelUser = User.Map();
+
             // Your logic goes here
             return User.Validate();
         }
