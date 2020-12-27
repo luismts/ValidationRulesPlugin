@@ -1,12 +1,10 @@
 ﻿using Plugin.ValidationRules;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Plugin.ValidationRules.Interfaces;
 using ValidationRulesTest.Validations;
 
 namespace ValidationRulesTest.Models
 {
-    public class UserValidator
+    public class UserValidator : IMapperValidator<UserValidator, User>
     {
         ValidationUnit _unit1;
 
@@ -39,7 +37,7 @@ namespace ValidationRulesTest.Models
             return _unit1.Validate(); 
         }
 
-        public User Cast()
+        public User Map(UserValidator input)
         {
             return new User
             {
