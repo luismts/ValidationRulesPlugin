@@ -19,6 +19,11 @@
 # Declare files that will always have CRLF line endings on checkout.
 *.sln text eol=crlf
 
+# Ignore files
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+*.html linguist-detectable=false
+
 ###############################################################################
 # Set the merge driver for project and solution files
 #
