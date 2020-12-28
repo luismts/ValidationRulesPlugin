@@ -40,7 +40,7 @@ Improve the quality of your data using validation rules. Validation rules verify
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
     <SignAssembly>false</SignAssembly>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageReleaseNotes>Validation Unit added</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/luismts/ValidationRulesPlugin/releases</PackageReleaseNotes>
     
   </PropertyGroup>
 
