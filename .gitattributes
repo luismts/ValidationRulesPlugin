@@ -12,6 +12,13 @@
 ###############################################################################
 #*.cs     diff=csharp
 
+# Explicitly declare text files we want to always be normalized and converted 
+# to native line endings on checkout.
+*.cs text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.sln text eol=crlf
+
 ###############################################################################
 # Set the merge driver for project and solution files
 #
@@ -40,9 +47,10 @@
 #
 # image files are treated as binary by default.
 ###############################################################################
-#*.jpg   binary
-#*.png   binary
-#*.gif   binary
+*.jpg   binary
+*.png   binary
+*.gif   binary
+*.jpeg binary
 
 ###############################################################################
 # diff behavior for common document formats
