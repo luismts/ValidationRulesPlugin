@@ -31,8 +31,8 @@ Improve the quality of your data using validation rules. Validation rules verify
     <RepositoryUrl>https://github.com/luismts/ValidationRulesPlugin</RepositoryUrl>
 
     <!-- Author: Luis Matos luismts.com -->
-    <Authors>luismts</Authors>
-    <Company>Luis Matos</Company>
+    <Authors>@luismatosluna</Authors>
+    <Company>Malla Agency</Company>
 
     <!-- Assembly -->
     <RootNamespace>Plugin.ValidationRules</RootNamespace>
