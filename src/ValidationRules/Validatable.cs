@@ -26,6 +26,7 @@ namespace Plugin.ValidationRules
         /// <summary>
         /// Initializes a new instance of the <see cref="Validatable{T}"/> class that takes a variable number of <see cref="IValidationRule{T}"/>.
         /// </summary>
+        /// <param name="validations">List of <see cref="Validatable{T}"/> to be added.</param>
         public Validatable(params IValidationRule<T>[] validations) : base()
         {
             _validations.AddRange(validations);
