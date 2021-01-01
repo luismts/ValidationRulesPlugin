@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
   <TemplateData>
     <DefaultName>Rule.cs</DefaultName>
     <Name>Rule</Name>
     <Description>Creates an empty Rule that derives from IValidationRules for validating your properties.</Description>
     <ProjectType>CSharp</ProjectType>
-    <Icon>__TemplateIcon.png</Icon>
+    <AppliesTo>CSharp + MultiTarget</AppliesTo>
+    <Icon>RuleIcon.png</Icon>
     <TemplateGroupID>CodeSharing-Native</TemplateGroupID>
     <TemplateID>Microsoft.CSharp.Rule</TemplateID>
     <SortOrder>10</SortOrder>

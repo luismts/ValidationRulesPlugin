@@ -2,11 +2,10 @@
 
 namespace $rootnamespace$
 {
-    public class $safeitemname$<T> : IValidationRule<T>
+    public class $safeitemname$<T> : IValueFormatter<T>
     {
-        public string ValidationMessage { get; set; }
 
-        public bool Check(T value)
+        public bool Format(T value)
         {
             if (value == null)
             {

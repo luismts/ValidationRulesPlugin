@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
   <TemplateData>
-    <DefaultName>Rule.cs</DefaultName>
-    <Name>Rule</Name>
-    <Description>Creates an empty Rule that derives from IValidationRules for validating your properties.</Description>
+    <DefaultName>Formatter.cs</DefaultName>
+    <Name>Formatter Template</Name>
+    <Description>Creates an formatter Rule that derives from IValueFormatter for Formatting your properties.</Description>
     <ProjectType>CSharp</ProjectType>
-    <Icon>__TemplateIcon.png</Icon>
+    <AppliesTo>CSharp + MultiTarget</AppliesTo>
+    <Icon>FormatterIcon.png</Icon>
     <TemplateGroupID>CodeSharing-Native</TemplateGroupID>
     <TemplateID>Microsoft.CSharp.Rule</TemplateID>
     <SortOrder>10</SortOrder>
@@ -14,6 +16,6 @@
   </TemplateData>
   <TemplateContent>
     <References />
-    <ProjectItem ReplaceParameters="true">Rule.cs</ProjectItem>
+    <ProjectItem ReplaceParameters="true">Formatter.cs</ProjectItem>
   </TemplateContent>
 </VSTemplate>
