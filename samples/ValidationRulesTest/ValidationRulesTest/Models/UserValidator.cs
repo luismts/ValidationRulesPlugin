@@ -1,20 +1,19 @@
 ﻿using Plugin.ValidationRules;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Plugin.ValidationRules.Extensions;
+using Plugin.ValidationRules.Interfaces;
 using ValidationRulesTest.Validations;
 
 namespace ValidationRulesTest.Models
 {
-    public class UserValidator
+    public class UserValidator : IMapperValidator<User>
     {
         ValidationUnit _unit1;
 
         public UserValidator()
         {
-            LastName = new ValidatableObject<string>();
-            Name = new ValidatableObject<string>();
-            Email = new ValidatableObject<string>();
+            LastName = new Validatable<string>();
+            Name = new Validatable<string>();
+            Email = new Validatable<string>();
 
             _unit1 = new ValidationUnit(Name, LastName, Email);
 
@@ -29,9 +28,9 @@ namespace ValidationRulesTest.Models
             Email.Validations.Add(new EmailRule());
         }
 
-        public ValidatableObject<string> LastName { get; set; }
-        public ValidatableObject<string> Name { get; set; }
-        public ValidatableObject<string> Email { get; set; }
+        public Validatable<string> LastName { get; set; }
+        public Validatable<string> Name { get; set; }
+        public Validatable<string> Email { get; set; }
 
         public bool Validate() 
         { 
@@ -39,14 +38,37 @@ namespace ValidationRulesTest.Models
             return _unit1.Validate(); 
         }
 
-        public User Cast()
+        public User Map()
         {
-            return new User
+            var stopper = new System.Diagnostics.Stopwatch();
+            var testRuns = 1000; // 1 second
+
+            stopper.Start();
+
+            // Simple Manual Mapper
+            var manualMapperUser = new User
             {
                 Name = this.Name.Value,
                 LastName = this.LastName.Value,
                 Email = this.Email.Value
             };
+
+            stopper.Stop();
+
+            var time1 = stopper.Elapsed.TotalMilliseconds / (double)testRuns;
+            System.Console.WriteLine("ManualMapper: " + time1);             // Elapsed time: 0.002
+
+            stopper.Restart();
+            
+            // Extension Mapper with simple Model
+            var extMapperUser = this.MapValidator<User, UserValidator>();
+
+            stopper.Stop();
+
+            var time2 = stopper.Elapsed.TotalMilliseconds / (double)testRuns;
+            System.Console.WriteLine("ExtensionMapper: " + time2);          // Elapsed time: 0.013
+
+            return manualMapperUser;
         }
     }
 }

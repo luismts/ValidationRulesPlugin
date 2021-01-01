@@ -9,14 +9,14 @@ namespace ValidationRulesTest.ViewModels
     {
         public Example2ViewModel()
         {
-            _user = new ValidatableObject<User>();
+            _user = new Validatable<User>();
             _user.Value = new User();
             
             AddValidations();
         }
 
-        private ValidatableObject<User> _user;
-        public ValidatableObject<User> User
+        private Validatable<User> _user;
+        public Validatable<User> User
         {
             get => _user;
             set => SetProperty(ref _user, value);

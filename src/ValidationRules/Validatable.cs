@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using Plugin.ValidationRules.Extensions;
 using Plugin.ValidationRules.Interfaces;
 
@@ -10,16 +11,25 @@ namespace Plugin.ValidationRules
     /// Provides a way for an object to be validated.
     /// </summary>
     /// <typeparam name="T">Type of the data to be validated</typeparam>
-    public class ValidatableObject<T> : ExtendedPropertyChanged, IValidity, IDisposable
+    public class Validatable<T> : ExtendedPropertyChanged, IValidity, IDisposable
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ValidatableObject{T}"/> class.
+        /// Initializes a new instance of the <see cref="Validatable{T}"/> class.
         /// </summary>
-        public ValidatableObject()
+        public Validatable()
         {
             _isValid = true;
             _errors = new List<string>();
             _validations = new List<IValidationRule<T>>();
+            ValidateCommand = new RelayCommand(_ => Validate());
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Validatable{T}"/> class that takes a variable number of <see cref="IValidationRule{T}"/>.
+        /// </summary>
+        public Validatable(params IValidationRule<T>[] validations) : base()
+        {
+            _validations.AddRange(validations);
         }
 
         #region Properties
@@ -30,6 +40,10 @@ namespace Plugin.ValidationRules
         /// </summary>
         public List<IValidationRule<T>> Validations => _validations;
 
+        /// <summary>
+        /// Reference formatter is attempting to format the property.
+        /// </summary>
+        public IValueFormatter<T> ValueFormatter { private get; set; }
 
         private List<string> _errors;
         /// <summary>
@@ -62,7 +76,19 @@ namespace Plugin.ValidationRules
         public T Value
         {
             get => _value;
-            set => SetProperty(ref _value, value);
+            set 
+            {
+                var oldValue = _value;
+                T newValue;
+
+                if (ValueFormatter != null)
+                    newValue = ValueFormatter.Format(value);
+                else
+                    newValue = value;
+
+                SetProperty(ref _value, newValue);
+                ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = newValue });
+            }
         }
 
         private bool _isValid;
@@ -74,6 +100,14 @@ namespace Plugin.ValidationRules
             get => _isValid;
             set => SetProperty(ref _isValid, value);
         }
+        #endregion
+
+        #region Commands
+        public ICommand ValidateCommand { get; private set; }
+        #endregion
+
+        #region Events
+        public event EventHandler<ValueChangedEventArgs<T>> ValueChanged;
         #endregion
 
         #region Methods
@@ -102,6 +136,7 @@ namespace Plugin.ValidationRules
             _validations?.Clear();
             _errors?.Clear();
             _value = default(T);
+            ValidateCommand = null;
         }
         #endregion
 
@@ -146,7 +181,7 @@ namespace Plugin.ValidationRules
 
         #endregion
 
-        ~ValidatableObject()
+        ~Validatable()
         {
             // The object went out of scope and finalized is called
             // Lets call dispose in to release unmanaged resources 

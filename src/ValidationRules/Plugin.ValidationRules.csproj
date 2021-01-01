@@ -5,15 +5,15 @@
     <!-- Product -->
     <AssemblyName>Plugin.ValidationRules</AssemblyName>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Copyright>Copyright 2018</Copyright>
-    <Version>1.1.0.0</Version>
+    <Product>Plugin.ValidationRules</Product>
+    <Copyright>Copyright 2021</Copyright>
+    <Version>1.2.0.0</Version>
     
     <!-- Package -->
     <PackageId>Plugin.ValidationRules</PackageId>
-    <PackageLicenseUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/luismts/ValidationRulesPlugin</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/luismts/ValidationRulesPlugin/blob/master/img/icon.png?raw=true</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <PackageTags>validate, valid, validation, rules, validation-rules, xam, xamarin, plugin, forms, xamarin.forms, ios, uwp, android, windows</PackageTags>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Title>Validation Rules Plugin for Xamarin and Windows</Title>
@@ -31,22 +31,35 @@ Improve the quality of your data using validation rules. Validation rules verify
     <RepositoryUrl>https://github.com/luismts/ValidationRulesPlugin</RepositoryUrl>
 
     <!-- Author: Luis Matos luismts.com -->
-    <Authors>luismts</Authors>
-    <Company>Luis Matos</Company>
+    <Authors>@luismatosluna</Authors>
+    <Company>Malla Agency</Company>
 
     <!-- Assembly -->
     <RootNamespace>Plugin.ValidationRules</RootNamespace>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
     <SignAssembly>false</SignAssembly>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageReleaseNotes>Validation Unit added</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/luismts/ValidationRulesPlugin/releases</PackageReleaseNotes>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Extensions\ExtendedBindableObject.cs" />
     <Compile Remove="ValidatableObject.Forms.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Assets\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

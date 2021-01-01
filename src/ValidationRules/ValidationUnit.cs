@@ -5,7 +5,7 @@ using System;
 namespace Plugin.ValidationRules
 {
     /// <summary>
-    /// Provides a way for a List of <see cref="ValidatableObject{T}"/> to be validated.
+    /// Provides a way for a List of <see cref="Validatable{T}"/> to be validated.
     /// </summary>
     public class ValidationUnit : ExtendedPropertyChanged, IValidity
     {
@@ -15,7 +15,7 @@ namespace Plugin.ValidationRules
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidationUnit"/> class.
         /// </summary>
-        /// <param name="objects">List of <see cref="ValidatableObject{T}"/> to be validated</param>
+        /// <param name="objects">List of <see cref="Validatable{T}"/> to be validated</param>
         public ValidationUnit(params object[] objects)
         {
             _objects = objects;
@@ -34,7 +34,7 @@ namespace Plugin.ValidationRules
 
 
         /// <summary>
-        /// Used to  perform the validations of the list of <see cref="ValidatableObject{T}"/>
+        /// Used to  perform the validations of the list of <see cref="Validatable{T}"/>
         /// </summary>
         /// <returns>Gets a value indicating whether the validation succeeded.</returns> 
         public bool Validate()
