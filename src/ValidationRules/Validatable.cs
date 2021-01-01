@@ -21,7 +21,6 @@ namespace Plugin.ValidationRules
             _isValid = true;
             _errors = new List<string>();
             _validations = new List<IValidationRule<T>>();
-            ValidateCommand = new RelayCommand(_ => Validate());
         }
 
         /// <summary>
@@ -103,7 +102,8 @@ namespace Plugin.ValidationRules
         #endregion
 
         #region Commands
-        public ICommand ValidateCommand { get; private set; }
+        private ICommand _validateCommand;
+        public ICommand ValidateCommand => _validateCommand ?? (_validateCommand = new RelayCommand(_ => Validate()));
         #endregion
 
         #region Events
