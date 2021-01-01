@@ -136,7 +136,7 @@ namespace Plugin.ValidationRules
             _validations?.Clear();
             _errors?.Clear();
             _value = default(T);
-            ValidateCommand = null;
+            _validateCommand = null;
         }
         #endregion
 
