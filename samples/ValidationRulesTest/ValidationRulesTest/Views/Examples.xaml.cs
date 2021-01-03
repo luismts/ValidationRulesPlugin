@@ -31,5 +31,10 @@ namespace ValidationRulesTest.Views
         {
             Navigation.PushModalAsync(new Example3());
         }
+
+        private void example4_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Example4());
+        }
     }
 }

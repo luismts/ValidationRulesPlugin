@@ -1,6 +1,6 @@
 ﻿using Plugin.ValidationRules.Interfaces;
 
-namespace ValidationRulesTest.Validations
+namespace Plugin.ValidationRules.Rules
 {
     public class EmailRule : IValidationRule<string>
     {

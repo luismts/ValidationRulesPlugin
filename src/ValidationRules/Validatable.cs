@@ -21,12 +21,12 @@ namespace Plugin.ValidationRules
             _isValid = true;
             _errors = new List<string>();
             _validations = new List<IValidationRule<T>>();
-            ValidateCommand = new RelayCommand(_ => Validate());
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Validatable{T}"/> class that takes a variable number of <see cref="IValidationRule{T}"/>.
         /// </summary>
+        /// <param name="validations">List of <see cref="Validatable{T}"/> to be added.</param>
         public Validatable(params IValidationRule<T>[] validations) : base()
         {
             _validations.AddRange(validations);
@@ -103,7 +103,8 @@ namespace Plugin.ValidationRules
         #endregion
 
         #region Commands
-        public ICommand ValidateCommand { get; private set; }
+        private ICommand _validateCommand;
+        public ICommand ValidateCommand => _validateCommand ?? (_validateCommand = new RelayCommand(_ => Validate()));
         #endregion
 
         #region Events
@@ -136,7 +137,7 @@ namespace Plugin.ValidationRules
             _validations?.Clear();
             _errors?.Clear();
             _value = default(T);
-            ValidateCommand = null;
+            _validateCommand = null;
         }
         #endregion
 
