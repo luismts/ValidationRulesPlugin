@@ -31,6 +31,7 @@ namespace ValidationRulesTest
 
         private void nameEntry_Unfocused(object sender, FocusEventArgs e)
         {
+            //_context.User.Name.ValidateCommand.Execute(null);
             _context.User.Name.Validate();
         }
 

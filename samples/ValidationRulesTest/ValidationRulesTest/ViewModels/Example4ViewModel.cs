@@ -2,6 +2,7 @@
 using Plugin.ValidationRules;
 using ValidationRulesTest.Validations;
 using ValidationRulesTest.Models;
+using Plugin.ValidationRules.Formatters;
 
 namespace ValidationRulesTest.ViewModels
 {
@@ -11,6 +12,9 @@ namespace ValidationRulesTest.ViewModels
         public Example4ViewModel()
         {
             _user = new UserValidator();
+
+            _user.Name.ValueFormatter = new StringCaseFormatter(StringCases.Capitalize);
+            _user.LastName.ValueFormatter = new StringCaseFormatter(StringCases.Upper);
         }
 
         private UserValidator _user;
