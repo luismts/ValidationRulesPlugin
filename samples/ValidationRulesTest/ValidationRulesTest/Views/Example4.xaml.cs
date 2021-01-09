@@ -28,21 +28,5 @@ namespace ValidationRulesTest
                 DisplayAlert(":(", "This form is not valid", "OK");
             }
         }
-
-        private void nameEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-            //_context.User.Name.ValidateCommand.Execute(null);
-            _context.User.Name.Validate();
-        }
-
-        private void lastnameEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-            _context.User.LastName.Validate();
-        }
-
-        private void emailEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-            _context.User.Email.Validate();
-        }
     }
 }
