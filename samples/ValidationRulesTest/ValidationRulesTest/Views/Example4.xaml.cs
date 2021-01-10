@@ -28,5 +28,13 @@ namespace ValidationRulesTest
                 DisplayAlert(":(", "This form is not valid", "OK");
             }
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            // Test clear all 1
+            _context.User.Name.Value = null;
+            _context.User.LastName.Value = null;
+            _context.User.Email.Value = null;
+        }
     }
 }
