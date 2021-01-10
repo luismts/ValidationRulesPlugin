@@ -49,6 +49,7 @@
             TextColor="Red" />
 
         <Button Clicked="Button_Clicked" Text="Validate" />
+        <Button Command="{Binding FillFormCommand}" Text="Fill Form" />
         <Button Clicked="Button_Clicked_1" Text="Clear Form" />
 
     </StackLayout>

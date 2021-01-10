@@ -3,6 +3,8 @@ using Plugin.ValidationRules;
 using ValidationRulesTest.Validations;
 using ValidationRulesTest.Models;
 using Plugin.ValidationRules.Formatters;
+using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace ValidationRulesTest.ViewModels
 {
@@ -22,6 +24,15 @@ namespace ValidationRulesTest.ViewModels
         {
             get => _user;
             set => SetProperty(ref _user, value);
+        }
+
+        public ICommand FillFormCommand => new Command(ExecuteFillFormCommand);
+
+        void ExecuteFillFormCommand()
+        {
+            User.Name.Value = "Luis";
+            User.LastName.Value = "Matos";
+            User.Email.Value = "luismatos@luismts.com";
         }
 
         public bool Validate()
