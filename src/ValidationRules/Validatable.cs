@@ -81,7 +81,7 @@ namespace Plugin.ValidationRules
                 var oldValue = _value;
                 T newValue;
 
-                if (ValueFormatter != null)
+                if (value != null && ValueFormatter != null)
                     newValue = ValueFormatter.Format(value);
                 else
                     newValue = value;
@@ -138,6 +138,7 @@ namespace Plugin.ValidationRules
             _errors?.Clear();
             _value = default(T);
             _validateCommand = null;
+            ValueChanged = null;
         }
         #endregion
 

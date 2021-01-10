@@ -3,17 +3,20 @@
     x:Class="ValidationRulesTest.Example4"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ValidationRulesTest">
+    xmlns:bx="clr-namespace:ValidationRulesTest.Behaviors">
 
     <StackLayout Padding="16">
 
-        <Label Margin="0,0,0,16" Text="Validation Rules Test" />
+        <Label Margin="0,0,0,16" Text="Validation Rules Test 4" />
 
         <Entry
             x:Name="nameEntry"
             Placeholder="Name"
-            Text="{Binding User.Name.Value, Mode=TwoWay}"
-            Unfocused="nameEntry_Unfocused" />
+            Text="{Binding User.Name.Value, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding User.Name.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
         <Label
             HorizontalTextAlignment="Center"
             Text="{Binding User.Name.Error}"
@@ -22,8 +25,11 @@
         <Entry
             x:Name="lastnameEntry"
             Placeholder="LastName"
-            Text="{Binding User.LastName.Value, Mode=TwoWay}"
-            Unfocused="lastnameEntry_Unfocused" />
+            Text="{Binding User.LastName.Value, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding User.LastName.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
         <Label
             HorizontalTextAlignment="Center"
             Text="{Binding User.LastName.Error}"
@@ -32,14 +38,19 @@
         <Entry
             x:Name="emailEntry"
             Placeholder="Email"
-            Text="{Binding User.Email.Value, Mode=TwoWay}"
-            Unfocused="emailEntry_Unfocused" />
+            Text="{Binding User.Email.Value, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding User.Email.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
         <Label
             HorizontalTextAlignment="Center"
             Text="{Binding User.Email.Error}"
             TextColor="Red" />
 
         <Button Clicked="Button_Clicked" Text="Validate" />
+        <Button Command="{Binding FillFormCommand}" Text="Fill Form" />
+        <Button Clicked="Button_Clicked_1" Text="Clear Form" />
 
     </StackLayout>
 

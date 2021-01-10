@@ -29,20 +29,12 @@ namespace ValidationRulesTest
             }
         }
 
-        private void nameEntry_Unfocused(object sender, FocusEventArgs e)
+        private void Button_Clicked_1(object sender, EventArgs e)
         {
-            //_context.User.Name.ValidateCommand.Execute(null);
-            _context.User.Name.Validate();
-        }
-
-        private void lastnameEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-            _context.User.LastName.Validate();
-        }
-
-        private void emailEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-            _context.User.Email.Validate();
+            // Test clear all 1
+            _context.User.Name.Value = null;
+            _context.User.LastName.Value = null;
+            _context.User.Email.Value = null;
         }
     }
 }
