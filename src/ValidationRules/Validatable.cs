@@ -138,6 +138,7 @@ namespace Plugin.ValidationRules
             _errors?.Clear();
             _value = default(T);
             _validateCommand = null;
+            ValueChanged = null;
         }
         #endregion
 
