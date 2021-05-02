@@ -1,7 +1,4 @@
 ﻿using Plugin.ValidationRules.Interfaces;
-using System;
-using System.Collections;
-using System.Linq;
 
 namespace Plugin.ValidationRules.Rules
 {
@@ -11,7 +8,7 @@ namespace Plugin.ValidationRules.Rules
 
         public bool Check(object value)
         {
-			return !(value == null);
-		}
+            return !(value == null);
+        }
     }
 }

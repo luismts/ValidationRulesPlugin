@@ -1,11 +1,10 @@
-﻿using Plugin.ValidationRules.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+
+using Plugin.ValidationRules.Interfaces;
 
 namespace Plugin.ValidationRules.Rules
 {
-    public class LessThanRule : IValidationRule<IComparable> 
+    public class LessThanRule : IValidationRule<IComparable>
     {
         IComparable _valueToCompare;
 
