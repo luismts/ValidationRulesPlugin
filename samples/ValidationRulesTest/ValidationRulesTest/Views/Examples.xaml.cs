@@ -19,22 +19,27 @@ namespace ValidationRulesTest.Views
 
         private void example1_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new Example1());
+            Navigation.PushAsync(new Example1());
         }
 
         private void example2_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new Example2());
+            Navigation.PushAsync(new Example2());
         }
 
         private void example3_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new Example3());
+            Navigation.PushAsync(new Example3());
         }
 
         private void example4_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new Example4());
+            Navigation.PushAsync(new Example4());
+        }
+
+        private void example5_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Example5());
         }
     }
 }
