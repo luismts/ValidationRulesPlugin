@@ -24,6 +24,9 @@
     <Compile Update="Views\Example2.xaml.cs">
       <DependentUpon>Example2.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Example5.xaml.cs">
+      <DependentUpon>Example5.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Example4.xaml.cs">
       <DependentUpon>Example4.xaml</DependentUpon>
     </Compile>
