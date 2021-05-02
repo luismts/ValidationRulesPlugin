@@ -106,7 +106,16 @@ namespace Plugin.ValidationRules.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value should be greater than or equal to {0}..
+        ///   Looks up a localized string similar to The value length is not the same..
+        /// </summary>
+        internal static string ExactLengthRuleMessage {
+            get {
+                return ResourceManager.GetString("ExactLengthRuleMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value is not greater than or equal to the min length..
         /// </summary>
         internal static string GreaterThanOrEqualRuleMessage {
             get {
@@ -115,7 +124,7 @@ namespace Plugin.ValidationRules.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value should be greater than {0}..
+        ///   Looks up a localized string similar to The value is not greater than the min length..
         /// </summary>
         internal static string GreaterThanRuleMessage {
             get {
@@ -124,7 +133,7 @@ namespace Plugin.ValidationRules.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value should be greater than or equal to {0} and less than or equal to {1}..
+        ///   Looks up a localized string similar to The value is not greater than or equal to the min length and less than or equal to the max length..
         /// </summary>
         internal static string InclusiveBetweenRuleMessage {
             get {
@@ -151,7 +160,16 @@ namespace Plugin.ValidationRules.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value should be less than or equal to {0}..
+        ///   Looks up a localized string similar to The value length is invalid..
+        /// </summary>
+        internal static string LengthRuleMessage {
+            get {
+                return ResourceManager.GetString("LengthRuleMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value is not less than or equal to max lentgh..
         /// </summary>
         internal static string LessThanOrEqualRuleMessage {
             get {
@@ -160,11 +178,29 @@ namespace Plugin.ValidationRules.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value should be less than {0}..
+        ///   Looks up a localized string similar to The value is not less than the max length..
         /// </summary>
         internal static string LessThanRuleMessage {
             get {
                 return ResourceManager.GetString("LessThanRuleMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value length is greater than the max length..
+        /// </summary>
+        internal static string MaxLengthRuleMessage {
+            get {
+                return ResourceManager.GetString("MaxLengthRuleMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value length is less than the min length..
+        /// </summary>
+        internal static string MinimumLengthRuleMessage {
+            get {
+                return ResourceManager.GetString("MinimumLengthRuleMessage", resourceCulture);
             }
         }
         
@@ -201,6 +237,15 @@ namespace Plugin.ValidationRules.Properties {
         internal static string NullRuleMessage {
             get {
                 return ResourceManager.GetString("NullRuleMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value is not valid..
+        /// </summary>
+        internal static string RegularExpressionRuleMessage {
+            get {
+                return ResourceManager.GetString("RegularExpressionRuleMessage", resourceCulture);
             }
         }
     }

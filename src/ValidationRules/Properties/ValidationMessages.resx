@@ -132,14 +132,17 @@
   <data name="EqualRuleMessage" xml:space="preserve">
     <value>The value should be equal.</value>
   </data>
+  <data name="ExactLengthRuleMessage" xml:space="preserve">
+    <value>The value length is not the same.</value>
+  </data>
   <data name="GreaterThanOrEqualRuleMessage" xml:space="preserve">
-    <value>The value should be greater than or equal to {0}.</value>
+    <value>The value is not greater than or equal to the min length.</value>
   </data>
   <data name="GreaterThanRuleMessage" xml:space="preserve">
-    <value>The value should be greater than {0}.</value>
+    <value>The value is not greater than the min length.</value>
   </data>
   <data name="InclusiveBetweenRuleMessage" xml:space="preserve">
-    <value>The value should be greater than or equal to {0} and less than or equal to {1}.</value>
+    <value>The value is not greater than or equal to the min length and less than or equal to the max length.</value>
   </data>
   <data name="InvalidMaximumMessage" xml:space="preserve">
     <value>Max should be larger than min.</value>
@@ -147,11 +150,20 @@
   <data name="InvalidToMessage" xml:space="preserve">
     <value>To should be larger than from.</value>
   </data>
+  <data name="LengthRuleMessage" xml:space="preserve">
+    <value>The value length is invalid.</value>
+  </data>
   <data name="LessThanOrEqualRuleMessage" xml:space="preserve">
-    <value>The value should be less than or equal to {0}.</value>
+    <value>The value is not less than or equal to max lentgh.</value>
   </data>
   <data name="LessThanRuleMessage" xml:space="preserve">
-    <value>The value should be less than {0}.</value>
+    <value>The value is not less than the max length.</value>
+  </data>
+  <data name="MaxLengthRuleMessage" xml:space="preserve">
+    <value>The value length is greater than the max length.</value>
+  </data>
+  <data name="MinimumLengthRuleMessage" xml:space="preserve">
+    <value>The value length is less than the min length.</value>
   </data>
   <data name="NotEmptyRuleMessage" xml:space="preserve">
     <value>The value should not be empty.</value>
@@ -164,5 +176,8 @@
   </data>
   <data name="NullRuleMessage" xml:space="preserve">
     <value>The value should be null.</value>
+  </data>
+  <data name="RegularExpressionRuleMessage" xml:space="preserve">
+    <value>The value is not valid.</value>
   </data>
 </root>

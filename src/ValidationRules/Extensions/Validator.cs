@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-
+using System.Text.RegularExpressions;
 using Plugin.ValidationRules.Properties;
 using Plugin.ValidationRules.Rules;
 
@@ -235,8 +235,7 @@ namespace Plugin.ValidationRules.Extensions
             IComparable defaultValue,
             string errorMessage = null)
         {
-            var invalidMessage = errorMessage ??
-                string.Format(ValidationMessages.GreaterThanRuleMessage, defaultValue);
+            var invalidMessage = errorMessage ?? ValidationMessages.GreaterThanRuleMessage;
 
             validatable.Validations.Add(new GreaterThanRule(defaultValue) { ValidationMessage = invalidMessage });
 
@@ -256,8 +255,7 @@ namespace Plugin.ValidationRules.Extensions
             IComparable defaultValue,
             string errorMessage = null)
         {
-            var invalidMessage = errorMessage ??
-                string.Format(ValidationMessages.GreaterThanOrEqualRuleMessage, defaultValue);
+            var invalidMessage = errorMessage ?? ValidationMessages.GreaterThanOrEqualRuleMessage;
 
             validatable.Validations.Add(new GreaterThanOrEqualRule(defaultValue) { ValidationMessage = invalidMessage });
 
@@ -282,8 +280,7 @@ namespace Plugin.ValidationRules.Extensions
             IComparable to,
             string errorMessage = null)
         {
-            var invalidMessage = errorMessage ??
-                string.Format(ValidationMessages.InclusiveBetweenRuleMessage, from, to);
+            var invalidMessage = errorMessage ?? ValidationMessages.InclusiveBetweenRuleMessage;
 
             validatable.Validations.Add(new InclusiveBetweenRule(from, to) { ValidationMessage = invalidMessage });
 
@@ -307,8 +304,7 @@ namespace Plugin.ValidationRules.Extensions
             IComparable defaultValue,
             string errorMessage = null)
         {
-            var invalidMessage = errorMessage ??
-                string.Format(ValidationMessages.LessThanRuleMessage, defaultValue);
+            var invalidMessage = errorMessage ?? ValidationMessages.LessThanRuleMessage;
 
             validatable.Validations.Add(new LessThanRule(defaultValue) { ValidationMessage = invalidMessage });
 
@@ -328,8 +324,7 @@ namespace Plugin.ValidationRules.Extensions
             IComparable defaultValue,
             string errorMessage = null)
         {
-            var invalidMessage = errorMessage ??
-                string.Format(ValidationMessages.LessThanOrEqualRuleMessage, defaultValue);
+            var invalidMessage = errorMessage ?? ValidationMessages.LessThanOrEqualRuleMessage;
 
             validatable.Validations.Add(new LessThanOrEqualRule(defaultValue) { ValidationMessage = invalidMessage });
 
@@ -378,6 +373,161 @@ namespace Plugin.ValidationRules.Extensions
 
         #region Length
 
+        /// <summary>
+        /// Add the <see cref="LengthRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="min">Minimum value comparer.</param>
+        /// <param name="max">Maximum value comparer.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<int> WithLengthRule(
+            this Validatable<int> validatable,
+            int min,
+            int max,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.LengthRuleMessage;
+
+            validatable.Validations.Add(new LengthRule(min, max) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="LengthRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="min">Delegate function that provides the minimum value comparer.</param>
+        /// <param name="max">Delegate function that provides the maximum value comparer.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<int> WithLengthRule(
+            this Validatable<int> validatable,
+            Func<object, int> min,
+            Func<object, int> max,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.LengthRuleMessage;
+
+            validatable.Validations.Add(new LengthRule(min, max) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="ExactLengthRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="length">Length use for the <see cref="ExactLengthRule"/> validator.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<int> WithExactLengthRule(
+            this Validatable<int> validatable,
+            int length,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.ExactLengthRuleMessage;
+
+            validatable.Validations.Add(new ExactLengthRule(length) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="LengthRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="length">Delegate function that provides the length value comparer.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<int> WithExactLengthRule(
+            this Validatable<int> validatable,
+            Func<object, int> length,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.ExactLengthRuleMessage;
+
+            validatable.Validations.Add(new ExactLengthRule(length) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="MaxLengthRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="max">Maximum value comparer.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<int> WithMaxLengthRule(
+            this Validatable<int> validatable,
+            int max,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.MaxLengthRuleMessage;
+
+            validatable.Validations.Add(new MaxLengthRule(max) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="MaxLengthRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="max">Delegate function that provides the maximum value comparer.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<int> WithMaxLengthRule(
+            this Validatable<int> validatable,
+            Func<object, int> max,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.MaxLengthRuleMessage;
+
+            validatable.Validations.Add(new MaxLengthRule(max) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="MinimumLengthRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="min">Minimum value comparer.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<int> WithMinimumLengthRule(
+            this Validatable<int> validatable,
+            int min,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.MinimumLengthRuleMessage;
+
+            validatable.Validations.Add(new MinimumLengthRule(min) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="MinimumLengthRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="min">Delegate function that provides the minimum value comparer.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<int> WithMinimumLengthRule(
+            this Validatable<int> validatable,
+            Func<object, int> min,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.MinimumLengthRuleMessage;
+
+            validatable.Validations.Add(new MinimumLengthRule(min) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
 
 
         #endregion
@@ -397,10 +547,93 @@ namespace Plugin.ValidationRules.Extensions
             string expression,
             string errorMessage = null)
         {
-            var invalidMessage = errorMessage ??
-                string.Format(ValidationMessages.LessThanRuleMessage, expression);
+            var invalidMessage = errorMessage ?? ValidationMessages.RegularExpressionRuleMessage;
 
             validatable.Validations.Add(new RegularExpressionRule(expression) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="RegularExpressionRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="regex">The regular expression in <see cref="Regex"/> format
+        /// used in the <see cref="RegularExpressionRule"/> validation.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<string> WithRegularExpression(
+            this Validatable<string> validatable,
+            Regex regex,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.RegularExpressionRuleMessage;
+
+            validatable.Validations.Add(new RegularExpressionRule(regex) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="RegularExpressionRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="expression">The regular expression in <see cref="string"/> format
+        /// used in the <see cref="RegularExpressionRule"/> validation.</param>
+        /// <param name="options">The regular expression option.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<string> WithRegularExpression(
+            this Validatable<string> validatable,
+            string expression,
+            RegexOptions options,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.RegularExpressionRuleMessage;
+
+            validatable.Validations.Add(new RegularExpressionRule(expression, options) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="RegularExpressionRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="expressionFunc">The regular expression delegate function
+        /// used in the <see cref="RegularExpressionRule"/> validation.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<string> WithRegularExpression(
+            this Validatable<string> validatable,
+            Func<object, string> expressionFunc,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.RegularExpressionRuleMessage;
+
+            validatable.Validations.Add(new RegularExpressionRule(expressionFunc) { ValidationMessage = invalidMessage });
+
+            return validatable;
+        }
+
+        /// <summary>
+        /// Add the <see cref="RegularExpressionRule"/> validation to the validatable property.
+        /// </summary>
+        /// <param name="validatable">The validatable property were the new validation
+        /// rule will be added.</param>
+        /// <param name="expression">The regular expression delegate function
+        /// used in the <see cref="RegularExpressionRule"/> validation.</param>
+        /// <param name="options">The regular expression option.</param>
+        /// <param name="errorMessage">The custom validation message.</param>
+        public static Validatable<string> WithRegularExpression(
+            this Validatable<string> validatable,
+            Func<object, string> expression,
+            RegexOptions options,
+            string errorMessage = null)
+        {
+            var invalidMessage = errorMessage ?? ValidationMessages.RegularExpressionRuleMessage;
+
+            validatable.Validations.Add(new RegularExpressionRule(expression, options) { ValidationMessage = invalidMessage });
 
             return validatable;
         }
