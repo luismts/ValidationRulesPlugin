@@ -1,27 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:ValidationRulesTest"
-             x:Class="ValidationRulesTest.Example3">
+<ContentPage
+    x:Class="ValidationRulesTest.Example3"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ValidationRulesTest"
+    Title="Test 3">
 
     <StackLayout Padding="16">
-        
-        <Label Text="Validation Rules Test" Margin="0,0,0,16" />
 
-        <Entry x:Name="nameEntry" Text="{Binding User.Name.Value, Mode=TwoWay}" 
-               Placeholder="Name" Unfocused="nameEntry_Unfocused" />
-        <Label Text="{Binding User.Name.Error}" TextColor="Red" HorizontalTextAlignment="Center" />
+        <Entry
+            x:Name="nameEntry"
+            Placeholder="Name"
+            Text="{Binding User.Name.Value, Mode=TwoWay}"
+            Unfocused="nameEntry_Unfocused" />
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding User.Name.Error}"
+            TextColor="Red" />
 
-        <Entry x:Name="lastnameEntry" Text="{Binding User.LastName.Value, Mode=TwoWay}" 
-               Placeholder="LastName" Unfocused="lastnameEntry_Unfocused" />
-        <Label Text="{Binding User.LastName.Error}" TextColor="Red" HorizontalTextAlignment="Center" />
+        <Entry
+            x:Name="lastnameEntry"
+            Placeholder="LastName"
+            Text="{Binding User.LastName.Value, Mode=TwoWay}"
+            Unfocused="lastnameEntry_Unfocused" />
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding User.LastName.Error}"
+            TextColor="Red" />
 
-        <Entry x:Name="emailEntry" Text="{Binding User.Email.Value, Mode=TwoWay}" 
-               Placeholder="Email" Unfocused="emailEntry_Unfocused" />
-        <Label Text="{Binding User.Email.Error}" TextColor="Red" HorizontalTextAlignment="Center" />
-        
-        <Button Text="Validate" Clicked="Button_Clicked" />
-        
+        <Entry
+            x:Name="emailEntry"
+            Placeholder="Email"
+            Text="{Binding User.Email.Value, Mode=TwoWay}"
+            Unfocused="emailEntry_Unfocused" />
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding User.Email.Error}"
+            TextColor="Red" />
+
+        <Button Clicked="Button_Clicked" Text="Validate" />
+
     </StackLayout>
 
 </ContentPage>
