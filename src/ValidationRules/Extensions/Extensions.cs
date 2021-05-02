@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.ValidationRules.Interfaces;
+using System;
 using System.Reflection;
 
 namespace Plugin.ValidationRules.Extensions
@@ -68,6 +69,14 @@ namespace Plugin.ValidationRules.Extensions
             }
 
             return newModel;
+        }
+
+        public static IValidationRule<T> WithMessage<T>(this IValidationRule<T> rule, string message)
+        {
+            if(message?.Length > 0)
+                rule.ValidationMessage = message;
+
+            return rule;
         }
     }
 }

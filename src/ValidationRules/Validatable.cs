@@ -27,7 +27,7 @@ namespace Plugin.ValidationRules
         /// Initializes a new instance of the <see cref="Validatable{T}"/> class that takes a variable number of <see cref="IValidationRule{T}"/>.
         /// </summary>
         /// <param name="validations">List of <see cref="Validatable{T}"/> to be added.</param>
-        public Validatable(params IValidationRule<T>[] validations) : base()
+        public Validatable(params IValidationRule<T>[] validations) : this()
         {
             _validations.AddRange(validations);
         }
@@ -100,6 +100,16 @@ namespace Plugin.ValidationRules
             get => _isValid;
             set => SetProperty(ref _isValid, value);
         }
+
+        private bool _hasErrors;
+        /// <summary>
+        /// The value indicating whether the validation has errors.
+        /// </summary>
+        public bool HasErrors
+        {
+            get => _hasErrors;
+            set => SetProperty(ref _hasErrors, value);
+        }
         #endregion
 
         #region Commands
@@ -125,7 +135,8 @@ namespace Plugin.ValidationRules
             IEnumerable<string> errors = _validations.Where(v => !v.Check(Value)).Select(v => v.ValidationMessage);
 
             Errors = errors.ToList();
-            IsValid = !Errors.Any();
+            HasErrors = Errors.Any();
+            IsValid = !HasErrors;
 
             // Gets a value indicating whether the validation succeeded.
             return this.IsValid;

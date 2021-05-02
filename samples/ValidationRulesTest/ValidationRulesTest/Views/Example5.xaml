@@ -1,50 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="ValidationRulesTest.Example4"
+    x:Class="ValidationRulesTest.Example5"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:bx="clr-namespace:ValidationRulesTest.Behaviors"
-    Title="Test 4">
+    Title="Test 5">
 
     <StackLayout Padding="16">
 
         <Entry
             x:Name="nameEntry"
             Placeholder="Name"
-            Text="{Binding User.Name.Value, Mode=TwoWay}">
+            Text="{Binding Name.Value, Mode=TwoWay}">
             <Entry.Behaviors>
-                <bx:EventToCommandBehavior Command="{Binding User.Name.ValidateCommand}" EventName="Unfocused" />
+                <bx:EventToCommandBehavior Command="{Binding Name.ValidateCommand}" EventName="Unfocused" />
             </Entry.Behaviors>
         </Entry>
         <Label
             HorizontalTextAlignment="Center"
-            Text="{Binding User.Name.Error}"
+            Text="{Binding Name.Error}"
             TextColor="Red" />
 
         <Entry
             x:Name="lastnameEntry"
             Placeholder="LastName"
-            Text="{Binding User.LastName.Value, Mode=TwoWay}">
+            Text="{Binding LastName.Value, Mode=TwoWay}">
             <Entry.Behaviors>
-                <bx:EventToCommandBehavior Command="{Binding User.LastName.ValidateCommand}" EventName="Unfocused" />
+                <bx:EventToCommandBehavior Command="{Binding LastName.ValidateCommand}" EventName="Unfocused" />
             </Entry.Behaviors>
         </Entry>
         <Label
             HorizontalTextAlignment="Center"
-            Text="{Binding User.LastName.Error}"
+            Text="{Binding LastName.Error}"
             TextColor="Red" />
 
         <Entry
             x:Name="emailEntry"
             Placeholder="Email"
-            Text="{Binding User.Email.Value, Mode=TwoWay}">
+            Text="{Binding Email.Value, Mode=TwoWay}">
             <Entry.Behaviors>
-                <bx:EventToCommandBehavior Command="{Binding User.Email.ValidateCommand}" EventName="Unfocused" />
+                <bx:EventToCommandBehavior Command="{Binding Email.ValidateCommand}" EventName="Unfocused" />
             </Entry.Behaviors>
         </Entry>
         <Label
             HorizontalTextAlignment="Center"
-            Text="{Binding User.Email.Error}"
+            Text="{Binding Email.Error}"
             TextColor="Red" />
 
         <Button Clicked="Button_Clicked" Text="Validate" />
