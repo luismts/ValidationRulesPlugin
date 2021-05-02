@@ -1,5 +1,6 @@
 ﻿using Plugin.ValidationRules;
 using Plugin.ValidationRules.Extensions;
+using Plugin.ValidationRules.Rules;
 using ValidationRulesTest.Validations;
 
 namespace ValidationRulesTest.ViewModels
@@ -20,11 +21,11 @@ namespace ValidationRulesTest.ViewModels
 
         private void AddValidations()
         {
-            Name = new Validatable<string>(new IsNotNullOrEmptyRule<string>().WithMessage("A name is required."));
+            Name = new Validatable<string>(new NotEmptyRule<string>("").WithMessage("A name is required."));
             LastName = new Validatable<string>(new IsNotNullOrEmptyRule<string>().WithMessage("A lastname is required."));
             Email = new Validatable<string>(
                 new IsNotNullOrEmptyRule<string>().WithMessage("A email is required."), 
-                new EmailRule()
+                new Plugin.ValidationRules.Rules.EmailRule()
             );
 
             _unit1 = new ValidationUnit(Name, LastName, Email);
