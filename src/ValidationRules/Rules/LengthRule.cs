@@ -1,5 +1,7 @@
-﻿using Plugin.ValidationRules.Interfaces;
-using System;
+﻿using System;
+
+using Plugin.ValidationRules.Interfaces;
+using Plugin.ValidationRules.Properties;
 
 namespace Plugin.ValidationRules.Rules
 {
@@ -12,7 +14,7 @@ namespace Plugin.ValidationRules.Rules
 
             if (max != -1 && max < min)
             {
-                throw new ArgumentOutOfRangeException(nameof(max), "Max should be larger than min.");
+                throw new ArgumentOutOfRangeException(nameof(max), ValidationMessages.InvalidMaximumMessage);
             }
         }
 
@@ -49,7 +51,7 @@ namespace Plugin.ValidationRules.Rules
 
             if (length < min || (length > max && max != -1))
                 return false;
-            
+
             return true;
         }
     }

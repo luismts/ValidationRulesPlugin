@@ -1,9 +1,11 @@
-﻿using Plugin.ValidationRules.Interfaces;
-using System;
+﻿using System;
+
+using Plugin.ValidationRules.Interfaces;
+using Plugin.ValidationRules.Properties;
 
 namespace Plugin.ValidationRules.Rules
 {
-    public class InclusiveBetweenRule : IValidationRule<IComparable> 
+    public class InclusiveBetweenRule : IValidationRule<IComparable>
     {
         public InclusiveBetweenRule(IComparable from, IComparable to)
         {
@@ -12,7 +14,7 @@ namespace Plugin.ValidationRules.Rules
 
             if (to.CompareTo(from) == -1)
             {
-                throw new ArgumentOutOfRangeException(nameof(to), "To should be larger than from.");
+                throw new ArgumentOutOfRangeException(nameof(to), ValidationMessages.InvalidToMessage);
             }
         }
 
@@ -27,9 +29,9 @@ namespace Plugin.ValidationRules.Rules
             // This should not be a failure condition - only a NotNull/NotEmpty should cause a null to fail.
             if (value == null) return true;
 
-            if (value.CompareTo(From) < 0 || value.CompareTo(To) > 0)            
+            if (value.CompareTo(From) < 0 || value.CompareTo(To) > 0)
                 return false;
-            
+
             return true;
         }
     }
