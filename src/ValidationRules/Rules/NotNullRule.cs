@@ -14,4 +14,14 @@ namespace Plugin.ValidationRules.Rules
 			return !(value == null);
 		}
     }
+
+    public class NotNullRule<TModel> : IValidationRule<TModel>
+    {
+        public string ValidationMessage { get; set; }
+
+        public bool Check(TModel value)
+        {
+            return !(value == null);
+        }
+    }
 }
