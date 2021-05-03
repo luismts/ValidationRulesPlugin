@@ -22,7 +22,7 @@ namespace Plugin.ValidationRules.Extensions
             return new Validatable<TModel>();
         }
 
-        public static Validatable<TModel> Add<TModel>(this Validatable<TModel> validatable, IValidationRule<TModel> validation, string errorMessage = "")
+        public static Validatable<TModel> WithRule<TModel>(this Validatable<TModel> validatable, IValidationRule<TModel> validation, string errorMessage = "")
         {
             if (errorMessage != "")
                 validation.WithMessage(errorMessage);

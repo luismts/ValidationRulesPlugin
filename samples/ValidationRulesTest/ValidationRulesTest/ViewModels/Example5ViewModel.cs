@@ -35,7 +35,7 @@ namespace ValidationRulesTest.ViewModels
             Email = Validator.Build<string>()
                     //.Add(new IsNotNullOrEmptyRule<string>(), "An email is required.")
                     .IsRequired("An email is required.")
-                    .Add(new EmailRule());
+                    .WithRule(new EmailRule());
 
             // Add to the unit
             _unit1 = new ValidationUnit(Name, LastName, Email);
