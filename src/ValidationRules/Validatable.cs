@@ -13,6 +13,8 @@ namespace Plugin.ValidationRules
     /// <typeparam name="T">Type of the data to be validated</typeparam>
     public class Validatable<T> : ExtendedPropertyChanged, IValidity, IDisposable
     {
+        bool _hasWhenCondition = false;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Validatable{T}"/> class.
         /// </summary>
@@ -131,16 +133,30 @@ namespace Plugin.ValidationRules
             // Remove all elements from the list
             Errors.Clear();
 
-            // Used to  perform the validations of the property
-            IEnumerable<string> errors = _validations.Where(v => !v.Check(Value)).Select(v => v.ValidationMessage);
+            if (_hasWhenCondition)
+            {
+                var whenRule = _validations.Find(rule => rule.GetType() == typeof(Rules.WhenRule<T>));
+                var isvalidCondition = whenRule?.Check(Value) ?? true;
 
+                if (!isvalidCondition)
+                {
+                    return IsValid = true;
+                }
+            }            
+
+            // Used to  perform the validations of the property
+            var failedValidations = _validations.Where(v => !v.Check(Value));
+            IEnumerable<string> errors = failedValidations.Select(v => v.ValidationMessage);
+
+            IsValid = !failedValidations.Any();
             Errors = errors.ToList();
             HasErrors = Errors.Any();
-            IsValid = !HasErrors;
 
             // Gets a value indicating whether the validation succeeded.
             return this.IsValid;
         }
+
+        internal void HasWhenCondition(bool has) => _hasWhenCondition = has;
 
         private void ReleaseManagedResources()
         {
