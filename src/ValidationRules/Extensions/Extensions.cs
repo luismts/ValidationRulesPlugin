@@ -1,5 +1,6 @@
 ﻿using Plugin.ValidationRules.Interfaces;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Plugin.ValidationRules.Extensions
@@ -77,6 +78,22 @@ namespace Plugin.ValidationRules.Extensions
                 rule.ValidationMessage = message;
 
             return rule;
+        }
+
+        /// <summary>
+        /// We can use Linq's Concat() method to concatanate elements of the two input sequences.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public static T[] Append<T>(this T[] array, T item)
+        {
+            if (array == null)
+            {
+                return new T[] { item };
+            }
+            return array.Concat(new T[] { item }).ToArray();
         }
 
         public static IValidationRule<T> WithMessage<T>(this IValidationRule<T> rule, Func<string> messageProvider)
