@@ -50,6 +50,19 @@ namespace Plugin.ValidationRules.Extensions
             return validatable;
         }
 
+        public static Validatable<TModel> Must<TModel>(this Validatable<TModel> validatable, Func<TModel, bool> predicate, string errorMessage = "")
+        {
+            validatable.Validations.Add(new FunctionRule<TModel>(predicate).WithMessage(errorMessage));
+            return validatable;
+        }
+
+        public static Validatable<TModel> When<TModel>(this Validatable<TModel> validatable, Func<TModel, bool> predicate)
+        {
+            validatable.HasWhenCondition(true);
+            validatable.Validations.Insert(0, new WhenRule<TModel>(ref validatable, predicate));
+            return validatable;
+        }
+
         #region Default Rules Extension
 
         /// <summary>
