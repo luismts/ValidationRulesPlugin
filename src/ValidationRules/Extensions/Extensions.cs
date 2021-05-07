@@ -78,5 +78,15 @@ namespace Plugin.ValidationRules.Extensions
 
             return rule;
         }
+
+        public static IValidationRule<T> WithMessage<T>(this IValidationRule<T> rule, Func<string> messageProvider)
+        {
+            var message = messageProvider();
+
+            if (message?.Length > 0)
+                rule.ValidationMessage = message;
+
+            return rule;
+        }
     }
 }

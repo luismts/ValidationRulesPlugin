@@ -22,7 +22,10 @@ namespace ValidationRulesTest.ViewModels
 
         private void AddValidations()
         {
-            Name = new Validatable<string>(new NotEmptyRule<string>("").WithMessage("A name is required."));
+            Name = new Validatable<string>(
+                new NotEmptyRule<string>("").WithMessage("A name is required."),
+                new IsNotNullOrEmptyRule<string>().WithMessage(() => "Hi!")
+            );
 
             LastName = Validator.Build<string>()
                         .IsRequired("A last name is required.")
