@@ -32,6 +32,12 @@ namespace Plugin.ValidationRules.Extensions
             return validatable;
         }
 
+        public static Validatable<TModel> WithRule<TModel>(this Validatable<TModel> validatable, params IValidationRule<TModel>[] validations)
+        {
+            validatable.Validations.AddRange(validations);
+            return validatable;
+        }
+
         public static Validatable<TModel> IsRequired<TModel>(this Validatable<TModel> validatable, string errorMessage = "")
         {
 
