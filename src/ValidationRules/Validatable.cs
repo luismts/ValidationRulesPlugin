@@ -138,14 +138,12 @@ namespace Plugin.ValidationRules
                 var whenRule = _validations.Find(rule => rule.GetType() == typeof(Rules.WhenRule<T>));
                 var isvalidCondition = whenRule?.Check(Value) ?? true;
 
-                if (!isvalidCondition)
-                {
-                    return IsValid = true;
-                }
+                if (!isvalidCondition)                
+                    return _isValid = false; // UI is not updated
             }            
 
             // Used to  perform the validations of the property
-            var failedValidations = _validations.Where(v => !v.Check(Value));
+            var failedValidations = _validations.Where(v => !v.Check(Value)).ToList();
             IEnumerable<string> errors = failedValidations.Select(v => v.ValidationMessage);
 
             IsValid = !failedValidations.Any();
