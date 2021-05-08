@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Text.RegularExpressions;
+using Plugin.ValidationRules.Interfaces;
 using Plugin.ValidationRules.Rules;
 
 namespace Plugin.ValidationRules.Extensions
@@ -21,7 +22,48 @@ namespace Plugin.ValidationRules.Extensions
             return new Validatable<TModel>();
         }
 
-        #region Credit Card
+        public static Validatable<TModel> WithRule<TModel>(this Validatable<TModel> validatable, IValidationRule<TModel> validation, string errorMessage = "")
+        {
+            if (errorMessage != "")
+                validation.WithMessage(errorMessage);
+
+            validatable.Validations.Add(validation);
+
+            return validatable;
+        }
+
+        public static Validatable<TModel> WithRule<TModel>(this Validatable<TModel> validatable, params IValidationRule<TModel>[] validations)
+        {
+            validatable.Validations.AddRange(validations);
+            return validatable;
+        }
+
+        public static Validatable<TModel> IsRequired<TModel>(this Validatable<TModel> validatable, string errorMessage = "")
+        {
+
+            if(typeof(TModel) == typeof(string))
+                validatable.Validations.Add(new NotEmptyRule<TModel>("").WithMessage(errorMessage));
+
+            if (typeof(TModel).IsClass)
+                validatable.Validations.Add(new NotNullRule<TModel>().WithMessage(errorMessage));
+
+            return validatable;
+        }
+
+        public static Validatable<TModel> Must<TModel>(this Validatable<TModel> validatable, Func<TModel, bool> predicate, string errorMessage = "")
+        {
+            validatable.Validations.Add(new FunctionRule<TModel>(predicate).WithMessage(errorMessage));
+            return validatable;
+        }
+
+        public static Validatable<TModel> When<TModel>(this Validatable<TModel> validatable, Func<TModel, bool> predicate)
+        {
+            validatable.HasWhenCondition(true);
+            validatable.Validations.Insert(0, new WhenRule<TModel>(ref validatable, predicate));
+            return validatable;
+        }
+
+        #region Default Rules Extension
 
         /// <summary>
         /// Add the <see cref="CreditCardRule"/> validation to the validatable property.
@@ -38,10 +80,6 @@ namespace Plugin.ValidationRules.Extensions
             return validatable;
         }
 
-        #endregion
-
-        #region Email
-
         /// <summary>
         /// Add the <see cref="EmailRule"/> validation to the validatable property.
         /// </summary>
@@ -57,7 +95,6 @@ namespace Plugin.ValidationRules.Extensions
             return validatable;
         }
 
-        #endregion
 
         #region Empty
 
@@ -99,7 +136,6 @@ namespace Plugin.ValidationRules.Extensions
 
         #endregion
 
-        #region Enumerable
 
         /// <summary>
         /// Add the <see cref="EnumRule"/> validation to the validatable property.
@@ -119,7 +155,6 @@ namespace Plugin.ValidationRules.Extensions
             return validatable;
         }
 
-        #endregion
 
         #region Equal
 
@@ -241,7 +276,6 @@ namespace Plugin.ValidationRules.Extensions
 
         #endregion
 
-        #region Inclusive Between
 
         /// <summary>
         /// Add the <see cref="InclusiveBetweenRule"/> validation to the validatable property.
@@ -262,7 +296,6 @@ namespace Plugin.ValidationRules.Extensions
             return validatable;
         }
 
-        #endregion
 
         #region Less Than
 
@@ -578,6 +611,8 @@ namespace Plugin.ValidationRules.Extensions
 
             return validatable;
         }
+
+        #endregion
 
         #endregion
     }

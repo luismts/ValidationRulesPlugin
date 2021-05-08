@@ -1,13 +1,16 @@
 ﻿using Plugin.ValidationRules;
 using Plugin.ValidationRules.Extensions;
 using Plugin.ValidationRules.Rules;
+using ValidationRulesTest.Models;
 using ValidationRulesTest.Validations;
+using EmailRule = Plugin.ValidationRules.Rules.EmailRule;
 
 namespace ValidationRulesTest.ViewModels
 {
     public class Example5ViewModel 
     {
-        ValidationUnit _unit1;
+        ValidationUnit _validationUnit;
+        UserValidator2 _testModelValidator;
 
         public Example5ViewModel()
         {
@@ -21,24 +24,48 @@ namespace ValidationRulesTest.ViewModels
 
         private void AddValidations()
         {
-            Name = new Validatable<string>(new NotEmptyRule<string>("").WithMessage("A name is required."));
-            LastName = new Validatable<string>(new IsNotNullOrEmptyRule<string>().WithMessage("A lastname is required."));
-            Email = new Validatable<string>(
-                new IsNotNullOrEmptyRule<string>().WithMessage("A email is required."), 
-                new Plugin.ValidationRules.Rules.EmailRule()
+            Name = new Validatable<string>(
+                new NotEmptyRule<string>("").WithMessage("A name is required."),
+                new IsNotNullOrEmptyRule<string>().WithMessage(() => "Hi!")
             );
 
-            _unit1 = new ValidationUnit(Name, LastName, Email);
+            LastName = Validator.Build<string>()
+                        .IsRequired("A last name is required.")
+                        .Must(CustomValidation, "Last name need to be longer.")
+                        .When(x => Name.Validate());
+
+            //// You can add several Rules by this
+            ///
+            //Email = new Validatable<string>(
+            //    new IsNotNullOrEmptyRule<string>().WithMessage("A email is required."), 
+            //    new EmailRule()
+            //);
+
+            // Or this
+            Email = Validator.Build<string>()
+                    //.Add(new IsNotNullOrEmptyRule<string>(), "An email is required.")
+                    .IsRequired("An email is required.")
+                    .WithRule(new EmailRule())
+                    .When(x => Name.Validate() && LastName.Validate());
+            
+            // Add to the unit
+            _validationUnit = new ValidationUnit(Name, LastName, Email);
+
+            // Validator Model
+            _testModelValidator = new UserValidator2();
         }
 
         public bool Validate()
         {
-            //var isValidName = _name.Validate();
-            //var isValidLastname = _lastname.Validate();
-            //var isValidEmail = _email.Validate();
+            // Test model
+            //var isValidModel = _testModelValidator.Validate();
 
-            //return isValidName && isValidLastname && isValidEmail;
-            return _unit1.Validate();
+            return _validationUnit.Validate();
+        }
+
+        private bool CustomValidation(string parameter)
+        {
+            return parameter?.Length > 3;
         }
 
     }
