@@ -7,25 +7,20 @@ namespace ValidationRulesTest.Models
 {
     public class UserValidator2 : Validator<User>
     {
-        ValidationUnit _unit1;
-
         public UserValidator2()
         {
-            LastName = new Validatable<string>();
-            Name = new Validatable<string>();
-            Email = new Validatable<string>();
-
-            _unit1 = new ValidationUnit(Name, LastName, Email);
-
-            // Name validations
-            Name.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "A name is required." });
+            //Name validations
+            Name = Build<string>()
+                    .WithRule(new IsNotNullOrEmptyRule<string>(), "A name is required.");
 
             //Lastname validations
-            LastName.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "A lastname is required." });
+            LastName = Build<string>()
+                        .WithRule(new IsNotNullOrEmptyRule<string>(), "A lastname is required.");
 
             //Email validations
-            Email.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "A email is required." });
-            Email.Validations.Add(new EmailRule());
+            Email = Build<string>()
+                        .IsRequired("A email is required.")
+                        .WithRule(new EmailRule());
 
             InitUnit();
         }
