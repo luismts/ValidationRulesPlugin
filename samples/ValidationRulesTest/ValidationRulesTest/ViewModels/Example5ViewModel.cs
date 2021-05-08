@@ -1,6 +1,7 @@
 ﻿using Plugin.ValidationRules;
 using Plugin.ValidationRules.Extensions;
 using Plugin.ValidationRules.Rules;
+using ValidationRulesTest.Models;
 using ValidationRulesTest.Validations;
 using EmailRule = Plugin.ValidationRules.Rules.EmailRule;
 
@@ -9,6 +10,7 @@ namespace ValidationRulesTest.ViewModels
     public class Example5ViewModel 
     {
         ValidationUnit _validationUnit;
+        UserValidator2 _testModelValidator;
 
         public Example5ViewModel()
         {
@@ -44,14 +46,20 @@ namespace ValidationRulesTest.ViewModels
                     //.Add(new IsNotNullOrEmptyRule<string>(), "An email is required.")
                     .IsRequired("An email is required.")
                     .WithRule(new EmailRule())
-                    .When(x => _validationUnit.Validate());
-
+                    .When(x => Name.Validate() && LastName.Validate());
+            
             // Add to the unit
             _validationUnit = new ValidationUnit(Name, LastName, Email);
+
+            // Validator Model
+            _testModelValidator = new UserValidator2();
         }
 
         public bool Validate()
         {
+            // Test model
+            //var isValidModel = _testModelValidator.Validate();
+
             return _validationUnit.Validate();
         }
 
