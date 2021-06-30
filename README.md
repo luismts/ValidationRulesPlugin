@@ -12,6 +12,14 @@ Improve the quality of your data using validation rules. Validation rules verify
 ## Documentation :book: 
 Get started by reading through the [ValidationRules Plugin documentation](https://luismts.com/blog/validation-rules-xamarin-windows/). You can also add [Validation Rule Templete extension](https://luismts.com/blog/validation-rule-template-extension/) for Visual Studio to make the work much easier and faster.
 
+### Wiki
+- Validation Rules for Xamarin and Windows ([EN](https://luismts.com/validation-rules-xamarin-windows/) | [ES](https://luismts.com/es/reglas-de-validacion-xamarin-windows/))
+- Validating Our Model ([EN](https://luismts.com/validating-model-plugin-validationrules/) | [ES](https://luismts.com/es/validando-modelo-plugin-validationrules/))
+- Validation Rule Template – Extension for Visual Studio ([EN](https://luismts.com/validation-rule-template-extension/) | [ES](https://luismts.com/es/extension-plantilla-de-reglas-de-validacion/))
+- Plugin.ValidationRules 1.2 ([EN](https://luismts.com/plugin-validationrules-1-2/) | [ES](https://luismts.com/es/plugin-validationrules-1-2/))
+- Plugin.ValidationRules 1.3 ([EN](https://luismts.com/plugin-validationrules-1-3/) | [ES](https://luismts.com/es/plugin-validationrules-1-3/))
+- See more ([EN](https://luismts.com/?s=validationrules) | [ES](https://luismts.com/es?s=validationrules))
+
 Don't miss this video! :arrow_down_small: :arrow_down_small: :arrow_down_small:
 
 [![Watch the video](https://img.youtube.com/vi/HMsKzIqCYJg/maxresdefault.jpg)](https://youtu.be/HMsKzIqCYJg)
