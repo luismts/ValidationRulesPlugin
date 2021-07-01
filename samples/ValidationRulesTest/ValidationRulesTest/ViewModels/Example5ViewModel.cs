@@ -1,6 +1,7 @@
 ﻿using Plugin.ValidationRules;
 using Plugin.ValidationRules.Extensions;
 using Plugin.ValidationRules.Rules;
+using System.Collections.Generic;
 using ValidationRulesTest.Models;
 using ValidationRulesTest.Validations;
 using EmailRule = Plugin.ValidationRules.Rules.EmailRule;
@@ -50,6 +51,9 @@ namespace ValidationRulesTest.ViewModels
             
             // Add to the unit
             _validationUnit = new ValidationUnit(Name, LastName, Email);
+
+            //var listValidatables = new List<Validatable<string>> { Name, LastName, Email };
+            //_validationUnit = new ValidationUnit(listValidatables);
 
             // Validator Model
             _testModelValidator = new UserValidator2();

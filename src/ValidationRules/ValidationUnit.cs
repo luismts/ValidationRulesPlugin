@@ -1,6 +1,7 @@
 ﻿using Plugin.ValidationRules.Extensions;
 using Plugin.ValidationRules.Interfaces;
-using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Plugin.ValidationRules
 {
@@ -11,14 +12,22 @@ namespace Plugin.ValidationRules
     {
         private object[] _objects;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationUnit"/> class.
+        /// </summary>
+        /// <param name="objects">List of <see cref="Validatable{T}"/> to be validated</param>
+        public ValidationUnit(params IValidity[] objects)
+        {
+            _objects = objects;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidationUnit"/> class.
         /// </summary>
         /// <param name="objects">List of <see cref="Validatable{T}"/> to be validated</param>
-        public ValidationUnit(params object[] objects)
+        public ValidationUnit(IEnumerable<IValidity> objects)
         {
-            _objects = objects;
+            _objects = objects.ToArray();
         }
 
 
