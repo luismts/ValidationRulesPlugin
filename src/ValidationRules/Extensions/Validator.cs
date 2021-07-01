@@ -90,7 +90,7 @@ namespace Plugin.ValidationRules.Extensions
             this Validatable<string> validatable,
             string errorMessage = null)
         {
-            validatable.Validations.Add(new CreditCardRule { ValidationMessage = errorMessage });
+            validatable.Validations.Add(new EmailRule { ValidationMessage = errorMessage });
 
             return validatable;
         }
