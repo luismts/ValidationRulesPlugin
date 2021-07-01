@@ -16,7 +16,7 @@ namespace Plugin.ValidationRules
         /// Initializes a new instance of the <see cref="ValidationUnit"/> class.
         /// </summary>
         /// <param name="objects">List of <see cref="Validatable{T}"/> to be validated</param>
-        public ValidationUnit(params IValidity[] objects)
+        public ValidationUnit(params object[] objects)
         {
             _objects = objects;
         }
