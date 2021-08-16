@@ -37,7 +37,7 @@ namespace Plugin.ValidationRules.Rules
                 }                    
             }
 
-            return isValid;
+            return true; // When rule now is an anonymous condition
         }
     }
 }
