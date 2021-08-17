@@ -41,5 +41,10 @@ namespace ValidationRulesTest.Views
         {
             Navigation.PushAsync(new Example5());
         }
+
+        private void example6_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Example6());
+        }
     }
 }
