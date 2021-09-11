@@ -11,6 +11,7 @@
 
         <Entry
             x:Name="passEntry"
+            IsPassword="True"
             Placeholder="Password"
             Text="{Binding Password.Value, Mode=TwoWay}">
             <Entry.Behaviors>
@@ -24,6 +25,7 @@
 
         <Entry
             x:Name="confirmEntry"
+            IsPassword="True"
             Placeholder="Confirm password"
             Text="{Binding ConfirmPassword.Value, Mode=TwoWay}">
             <Entry.Behaviors>
