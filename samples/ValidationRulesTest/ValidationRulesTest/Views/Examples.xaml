@@ -42,6 +42,11 @@
                 Clicked="example6_Clicked"
                 Text="Example 6" />
 
+            <Button
+                x:Name="example7"
+                Clicked="example7_Clicked"
+                Text="Example 7" />
+
         </StackLayout>
     </ContentPage.Content>
 
