@@ -81,17 +81,21 @@ namespace Plugin.ValidationRules
             set 
             {
                 var oldValue = _value;
-                T newValue;
 
-                if (value != null && Formatter != null)
-                    newValue = Formatter.Format(value);
+                if (Formatter != null)
+                    ValueFormatted = Formatter.Format(value);
                 else
-                    newValue = value;
+                    ValueFormatted = value;
 
-                SetProperty(ref _value, newValue);
-                ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = newValue });
+                SetProperty(ref _value, value);
+                ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = value });
             }
         }
+
+        /// <summary>
+        /// Formatted value.
+        /// </summary>
+        public T ValueFormatted { get; private set; }
 
         private bool _isValid;
         /// <summary>
