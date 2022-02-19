@@ -11,7 +11,7 @@
         <Entry
             x:Name="nameEntry"
             Placeholder="Name"
-            Text="{Binding User.Name.Value, Mode=TwoWay}">
+            Text="{Binding User.Name.ValueFormatted, Mode=TwoWay}">
             <Entry.Behaviors>
                 <bx:EventToCommandBehavior Command="{Binding User.Name.ValidateCommand}" EventName="Unfocused" />
             </Entry.Behaviors>
@@ -24,7 +24,7 @@
         <Entry
             x:Name="lastnameEntry"
             Placeholder="LastName"
-            Text="{Binding User.LastName.Value, Mode=TwoWay}">
+            Text="{Binding User.LastName.ValueFormatted, Mode=TwoWay}">
             <Entry.Behaviors>
                 <bx:EventToCommandBehavior Command="{Binding User.LastName.ValidateCommand}" EventName="Unfocused" />
             </Entry.Behaviors>
