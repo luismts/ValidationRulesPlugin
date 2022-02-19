@@ -45,7 +45,7 @@ namespace Plugin.ValidationRules
         /// <summary>
         /// Reference formatter is attempting to format the property.
         /// </summary>
-        public IValueFormatter<T> ValueFormatter { private get; set; }
+        public IValueFormatter<T> Formatter { private get; set; }
 
         private List<string> _errors;
         /// <summary>
@@ -83,8 +83,8 @@ namespace Plugin.ValidationRules
                 var oldValue = _value;
                 T newValue;
 
-                if (value != null && ValueFormatter != null)
-                    newValue = ValueFormatter.Format(value);
+                if (value != null && Formatter != null)
+                    newValue = Formatter.Format(value);
                 else
                     newValue = value;
 

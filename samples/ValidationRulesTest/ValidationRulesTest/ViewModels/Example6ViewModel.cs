@@ -16,7 +16,7 @@ namespace ValidationRulesTest.ViewModels
                 .When(x => !string.IsNullOrEmpty(x))
                 .Must(x => x.Length == 12, "Minimum lenght is 12.");
 
-            Phone.ValueFormatter = new MaskFormatter("XXX-XXX-XXXX");
+            Phone.Formatter = new MaskFormatter("XXX-XXX-XXXX");
         }
 
         public Validatable<string> Name { get; set; }
