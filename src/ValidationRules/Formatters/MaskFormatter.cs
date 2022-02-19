@@ -16,7 +16,25 @@ namespace Plugin.ValidationRules.Formatters
             SetPositions();
         }
 
-        public string Mask { get; private set; }
+        public string Mask { get; private set; }// XXX-XXXXX-X
+
+        void SetPositions()
+        {
+            if (string.IsNullOrEmpty(Mask))
+            {
+                _positions = null;
+                return;
+            }
+
+            var list = new Dictionary<int, char>();
+            for (var i = 0; i < Mask.Length; i++)
+                if (Mask[i] != 'X')
+                    list.Add(i, Mask[i]);
+
+            _positions = list;
+        }
+
+        public void ChangeMask(string mask) => Mask = mask;
 
         public string Format(string text)
         {
@@ -44,23 +62,22 @@ namespace Plugin.ValidationRules.Formatters
             return text;
         }
 
-
-        void SetPositions()
+        public string UnFormat(string text)
         {
-            if (string.IsNullOrEmpty(Mask))
+            if (string.IsNullOrWhiteSpace(text) || _positions == null)
+                return text;
+
+            foreach (var position in _positions)
             {
-                _positions = null;
-                return;
+                if (text.Length >= position.Key + 1)
+                {
+                    var value = position.Value.ToString();
+                    if (text.Substring(position.Key, 1) != value)
+                        text = text.Substring(position.Key, 1);
+                }
             }
 
-            var list = new Dictionary<int, char>();
-            for (var i = 0; i < Mask.Length; i++)
-                if (Mask[i] != 'X')
-                    list.Add(i, Mask[i]);
-
-            _positions = list;
+            return text;
         }
-
-        public void ChangeMask(string mask) => Mask = mask;
     }
 }

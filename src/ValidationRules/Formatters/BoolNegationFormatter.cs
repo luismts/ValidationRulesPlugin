@@ -29,6 +29,25 @@ namespace Plugin.ValidationRules.Formatters
 
             return returnValue;
         }
+
+        public bool UnFormat(bool value)
+        {
+            var returnValue = this.FalseValue;
+
+            if (value is bool boolValue)
+            {
+                if (this.IsInverted)
+                {
+                    returnValue = boolValue ? this.TrueValue : this.FalseValue;
+                }
+                else
+                {
+                    returnValue = boolValue ? this.FalseValue : this.TrueValue;
+                }
+            }
+
+            return returnValue;
+        }
     }
 
     public class InverseBoolFormatter : BoolNegationFormatter

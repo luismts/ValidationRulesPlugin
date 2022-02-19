@@ -45,7 +45,7 @@ namespace Plugin.ValidationRules
         /// <summary>
         /// Reference formatter is attempting to format the property.
         /// </summary>
-        public IValueFormatter<T> ValueFormatter { private get; set; }
+        public IValueFormatter<T> Formatter { private get; set; }
 
         private List<string> _errors;
         /// <summary>
@@ -81,14 +81,41 @@ namespace Plugin.ValidationRules
             set 
             {
                 var oldValue = _value;
+
+                if (Formatter != null)
+                    ValueFormatted = Formatter.Format(value);
+                else
+                    ValueFormatted = value;
+
+                SetProperty(ref _value, value);
+                ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = value });
+            }
+        }
+
+        private T _valueFormatted;
+        /// <summary>
+        /// Formatted value.
+        /// </summary>
+        public T ValueFormatted
+        {
+            get => _valueFormatted;
+            set
+            {
+                var oldValue = _valueFormatted;
                 T newValue;
 
-                if (value != null && ValueFormatter != null)
-                    newValue = ValueFormatter.Format(value);
+                if (Formatter != null)
+                {
+                    newValue = Formatter.Format(value);
+                    _value = Formatter.UnFormat(value);
+                }
                 else
+                {
                     newValue = value;
+                    _value = value;
+                }
 
-                SetProperty(ref _value, newValue);
+                SetProperty(ref _valueFormatted, newValue);
                 ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = newValue });
             }
         }

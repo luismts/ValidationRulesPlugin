@@ -24,7 +24,7 @@
             <Entry
                 x:Name="phoneEntry"
                 Placeholder="Phone"
-                Text="{Binding Phone.Value, Mode=TwoWay}">
+                Text="{Binding Phone.ValueFormatted, Mode=TwoWay}">
                 <Entry.Behaviors>
                     <bx:EventToCommandBehavior Command="{Binding Phone.ValidateCommand}" EventName="Unfocused" />
                 </Entry.Behaviors>

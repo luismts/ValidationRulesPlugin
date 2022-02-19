@@ -15,8 +15,8 @@ namespace ValidationRulesTest.ViewModels
         {
             _user = new UserValidator();
 
-            _user.Name.ValueFormatter = new StringCaseFormatter(StringCases.Capitalize);
-            _user.LastName.ValueFormatter = new StringCaseFormatter(StringCases.Upper);
+            _user.Name.Formatter = new StringCaseFormatter(StringCases.Capitalize);
+            _user.LastName.Formatter = new StringCaseFormatter(StringCases.Upper);
         }
 
         private UserValidator _user;

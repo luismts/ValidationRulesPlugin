@@ -28,5 +28,10 @@ namespace Plugin.ValidationRules.Formatters
 
             return "";
         }
+
+        public string UnFormat(string value)
+        {
+            return value;
+        }
     }
 }
