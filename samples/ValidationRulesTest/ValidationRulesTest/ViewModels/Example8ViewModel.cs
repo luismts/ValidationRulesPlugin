@@ -9,7 +9,7 @@ namespace ValidationRulesTest.ViewModels
         public Example8ViewModel()
         {
             Quantity = Validator.Build<int>()
-                .IsRequired("The quantity is required.");
+                .Must(value => value > 0, "Need to specify the quantity");
 
             var monkeyList = new List<string>();
             monkeyList.Add("Baboon");
@@ -29,8 +29,12 @@ namespace ValidationRulesTest.ViewModels
                         return false;
 
                     return true;
-                }, "You need to increment the quantity of this monkey");
+                }, "Minimum quantity of this monkey is 5");
+
+            UnitValidation = new ValidationUnit(Quantity, MonkeyList);
         }
+
+        public ValidationUnit UnitValidation;
 
         public Validatable<int> Quantity { get; set; }
         public ValidatableList<string> MonkeyList { get; set; }

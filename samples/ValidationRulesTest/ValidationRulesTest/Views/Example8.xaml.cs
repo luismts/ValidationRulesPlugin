@@ -27,7 +27,8 @@ namespace ValidationRulesTest.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            var isValid = _context.Validate();
+            //var isValid = _context.Validate();
+            var isValid = _context.UnitValidation.Validate();
 
             if (isValid)
             {
@@ -35,7 +36,8 @@ namespace ValidationRulesTest.Views
             }
             else
             {
-                DisplayAlert(":(", "This form is not valid", "OK");
+                var error = _context.UnitValidation.Error;
+                DisplayAlert(":(", error, "OK");
             }
         }
     }
