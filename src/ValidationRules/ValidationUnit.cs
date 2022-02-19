@@ -12,11 +12,17 @@ namespace Plugin.ValidationRules
     {
         private object[] _objects;
 
+        public ValidationUnit()
+        {
+            _isValid = true;
+            _errors = new List<string>();
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidationUnit"/> class.
         /// </summary>
         /// <param name="objects">List of <see cref="Validatable{T}"/> to be validated</param>
-        public ValidationUnit(params object[] objects)
+        public ValidationUnit(params object[] objects) : this()
         {
             _objects = objects;
         }
@@ -25,7 +31,7 @@ namespace Plugin.ValidationRules
         /// Initializes a new instance of the <see cref="ValidationUnit"/> class.
         /// </summary>
         /// <param name="objects">List of <see cref="Validatable{T}"/> to be validated</param>
-        public ValidationUnit(IEnumerable<IValidity> objects)
+        public ValidationUnit(IEnumerable<IValidity> objects) : this()
         {
             _objects = objects.ToArray();
         }
