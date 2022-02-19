@@ -27,5 +27,10 @@ namespace Plugin.ValidationRules.Formatters
 
             return stringValue;
         }
+
+        public string UnFormat(string stringValue)
+        {
+            return stringValue.ToLower();
+        }
     }
 }

@@ -92,10 +92,33 @@ namespace Plugin.ValidationRules
             }
         }
 
+        private T _valueFormatted;
         /// <summary>
         /// Formatted value.
         /// </summary>
-        public T ValueFormatted { get; private set; }
+        public T ValueFormatted
+        {
+            get => _valueFormatted;
+            set
+            {
+                var oldValue = _valueFormatted;
+                T newValue;
+
+                if (Formatter != null)
+                {
+                    newValue = Formatter.Format(value);
+                    _value = Formatter.UnFormat(value);
+                }
+                else
+                {
+                    newValue = value;
+                    _value = value;
+                }
+
+                SetProperty(ref _valueFormatted, newValue);
+                ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = newValue });
+            }
+        }
 
         private bool _isValid;
         /// <summary>
