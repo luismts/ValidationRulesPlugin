@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Input;
-using Plugin.ValidationRules.Extensions;
 using Plugin.ValidationRules.Interfaces;
 
 namespace Plugin.ValidationRules
