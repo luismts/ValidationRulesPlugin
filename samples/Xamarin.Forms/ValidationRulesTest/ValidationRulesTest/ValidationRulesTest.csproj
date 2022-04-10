@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\ValidationRules\Plugin.ValidationRules.csproj" />
+    <ProjectReference Include="..\..\..\..\src\ValidationRules\Plugin.ValidationRules.csproj" />
   </ItemGroup>
 
   <ItemGroup>
