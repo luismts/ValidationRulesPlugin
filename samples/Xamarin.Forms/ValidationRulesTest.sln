@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationRulesTest.iOS", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationRulesTest", "ValidationRulesTest\ValidationRulesTest\ValidationRulesTest.csproj", "{3D4A0C89-164B-49D4-BA26-C0BF4B94F74B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.ValidationRules", "..\src\ValidationRules\Plugin.ValidationRules.csproj", "{1DA953F3-E1A6-425A-B823-629006A45561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.ValidationRules", "..\..\src\ValidationRules\Plugin.ValidationRules.csproj", "{1DA953F3-E1A6-425A-B823-629006A45561}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
