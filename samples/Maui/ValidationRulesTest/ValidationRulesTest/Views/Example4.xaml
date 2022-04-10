@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ValidationRulesTest.Example4"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bx="clr-namespace:ValidationRulesTest.Behaviors"
+    Title="Test 4">
+
+    <StackLayout Padding="16">
+
+        <Entry
+            x:Name="nameEntry"
+            Placeholder="Name"
+            Text="{Binding User.Name.ValueFormatted, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding User.Name.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding User.Name.Error}"
+            TextColor="Red" />
+
+        <Entry
+            x:Name="lastnameEntry"
+            Placeholder="LastName"
+            Text="{Binding User.LastName.ValueFormatted, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding User.LastName.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding User.LastName.Error}"
+            TextColor="Red" />
+
+        <Entry
+            x:Name="emailEntry"
+            Placeholder="Email"
+            Text="{Binding User.Email.Value, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding User.Email.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding User.Email.Error}"
+            TextColor="Red" />
+
+        <Button Clicked="Button_Clicked" Text="Validate" />
+        <Button Command="{Binding FillFormCommand}" Text="Fill Form" />
+        <Button Clicked="Button_Clicked_1" Text="Clear Form" />
+
+    </StackLayout>
+
+</ContentPage>

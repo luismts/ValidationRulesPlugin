@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ValidationRulesTest.Views.Examples"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ValidationRules Examples">
+
+    <ContentPage.Content>
+        <StackLayout Padding="16" VerticalOptions="Center">
+            <Label
+                Margin="8"
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="CenterAndExpand"
+                Text="Building better User Experience!"
+                VerticalOptions="CenterAndExpand" />
+
+            <Button
+                x:Name="example1"
+                Clicked="example1_Clicked"
+                Text="Example 1" />
+            <Button
+                x:Name="example2"
+                Clicked="example2_Clicked"
+                Text="Example 2" />
+            <Button
+                x:Name="example3"
+                Clicked="example3_Clicked"
+                Text="Example 3" />
+            <Button
+                x:Name="example4"
+                Clicked="example4_Clicked"
+                Text="Example 4" />
+
+            <Button
+                x:Name="example5"
+                Clicked="example5_Clicked"
+                Text="Example 5" />
+
+            <Button
+                x:Name="example6"
+                Clicked="example6_Clicked"
+                Text="Example 6" />
+
+            <Button
+                x:Name="example7"
+                Clicked="example7_Clicked"
+                Text="Example 7" />
+
+            <Button
+                x:Name="example8"
+                Clicked="example8_Clicked"
+                Text="Example 8" />
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

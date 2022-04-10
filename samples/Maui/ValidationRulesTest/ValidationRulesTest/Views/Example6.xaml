@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ValidationRulesTest.Views.Example6"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bx="clr-namespace:ValidationRulesTest.Behaviors">
+    <ContentPage.Content>
+        <StackLayout Padding="16">
+
+
+            <Entry
+                x:Name="nameEntry"
+                Placeholder="Name"
+                Text="{Binding Name.Value, Mode=TwoWay}">
+                <Entry.Behaviors>
+                    <bx:EventToCommandBehavior Command="{Binding Name.ValidateCommand}" EventName="Unfocused" />
+                </Entry.Behaviors>
+            </Entry>
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="{Binding Name.Error}"
+                TextColor="Red" />
+
+            <Entry
+                x:Name="phoneEntry"
+                Placeholder="Phone"
+                Text="{Binding Phone.ValueFormatted, Mode=TwoWay}">
+                <Entry.Behaviors>
+                    <bx:EventToCommandBehavior Command="{Binding Phone.ValidateCommand}" EventName="Unfocused" />
+                </Entry.Behaviors>
+            </Entry>
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="{Binding Phone.Error}"
+                TextColor="Red" />
+
+            <Button Clicked="Button_Clicked" Text="Validate" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

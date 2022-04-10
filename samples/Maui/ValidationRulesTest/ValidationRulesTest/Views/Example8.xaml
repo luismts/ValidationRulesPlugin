@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ValidationRulesTest.Views.Example8"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bx="clr-namespace:ValidationRulesTest.Behaviors"
+    Title="Version 1.4">
+
+    <StackLayout Padding="16">
+
+
+        <Entry
+            Keyboard="Numeric"
+            Placeholder="Quantity"
+            Text="{Binding Path=Quantity.Value, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding Path=Quantity.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding Path=Quantity.Error}"
+            TextColor="Red" />
+
+        <Picker
+            Title="Select the monkey"
+            ItemsSource="{Binding Path=MonkeyList.ItemsSource}"
+            SelectedIndex="{Binding Path=MonkeyList.SelectedIndex}">
+            <Picker.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding Path=MonkeyList.ValidateCommand}" EventName="Unfocused" />
+            </Picker.Behaviors>
+        </Picker>
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding Path=MonkeyList.Error}"
+            TextColor="Red" />
+
+        <Button Clicked="Button_Clicked" Text="Validate" />
+
+    </StackLayout>
+
+</ContentPage>

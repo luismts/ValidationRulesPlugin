@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ValidationRulesTest.Views.Example7"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bx="clr-namespace:ValidationRulesTest.Behaviors"
+    Title="Validating passwords">
+
+    <StackLayout Padding="16">
+
+
+        <Entry
+            x:Name="passEntry"
+            IsPassword="True"
+            Placeholder="Password"
+            Text="{Binding Password.Value, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding Password.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding Password.Error}"
+            TextColor="Red" />
+
+        <Entry
+            x:Name="confirmEntry"
+            IsPassword="True"
+            Placeholder="Confirm password"
+            Text="{Binding ConfirmPassword.Value, Mode=TwoWay}">
+            <Entry.Behaviors>
+                <bx:EventToCommandBehavior Command="{Binding ConfirmPassword.ValidateCommand}" EventName="Unfocused" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="{Binding ConfirmPassword.Error}"
+            TextColor="Red" />
+
+        <Button Clicked="Button_Clicked" Text="Validate" />
+
+    </StackLayout>
+
+</ContentPage>
