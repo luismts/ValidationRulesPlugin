@@ -34,6 +34,7 @@ Consult the presentation [here](/Assets/validation%20rules%20xamarin%20-%20@luis
 
 |Platform|Version|
 | ------------------- | :-----------: |
+|.NET |6.0+|
 |.NET Standard|2.0+|
 
 #### ValidationsRules or MyOwnImplementation
