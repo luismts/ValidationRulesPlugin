@@ -53,36 +53,6 @@
 	  <ProjectReference Include="..\..\..\..\src\ValidationRules\Plugin.ValidationRules.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <MauiXaml Update="Views\Example1.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Example2.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Example3.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Example4.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Example5.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Example6.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Example7.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Example8.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Examples.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
