@@ -1,7 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.0;net6.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ValidationRules\Plugin.ValidationRules.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ReactiveRules\" />
+  </ItemGroup>
 
 </Project>
