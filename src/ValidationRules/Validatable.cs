@@ -81,14 +81,15 @@ namespace Plugin.ValidationRules
             set 
             {
                 var oldValue = _value;
-                
-                SetProperty(ref _value, value);
+                T valueFormatted;
 
                 if (Formatter != null)
-                    ValueFormatted = Formatter.Format(value);
+                    valueFormatted = Formatter.Format(value);
                 else
-                    ValueFormatted = value;
+                    valueFormatted = value;
 
+                SetProperty(ref _value, value);
+                SetProperty(ref _valueFormatted, valueFormatted);
                 ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = value });
             }
         }
@@ -116,6 +117,7 @@ namespace Plugin.ValidationRules
                     _value = value;
                 }
 
+                SetProperty(ref _value, value);
                 SetProperty(ref _valueFormatted, newValue);
                 ValueChanged?.Invoke(this, new ValueChangedEventArgs<T>() { OldValue = oldValue, NewValue = newValue });
             }
