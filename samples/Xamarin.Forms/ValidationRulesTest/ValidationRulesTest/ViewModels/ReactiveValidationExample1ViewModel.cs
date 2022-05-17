@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Plugin.Reactive.ValidationRules;
 using Plugin.ValidationRules.Extensions;
@@ -8,7 +9,7 @@ using EmailRule = Plugin.ValidationRules.Rules.EmailRule;
 
 namespace ValidationRulesTest.ViewModels
 {
-    public class ReactiveValidationExample1ViewModel : ExtendedPropertyChanged
+    public class ReactiveValidationExample1ViewModel : ExtendedPropertyChanged, IDisposable
     {
         ReactiveValidatable<string> _name;
         public ReactiveValidatable<string> Name
@@ -29,13 +30,6 @@ namespace ValidationRulesTest.ViewModels
         {
             get => _password;
             set => SetProperty(ref _password, value);
-        }
-
-        public ReactiveValidatable<int> _age;
-        public ReactiveValidatable<int> Age
-        {
-            get => _age;
-            set => SetProperty(ref _age, value);
         }
 
         public ReactiveValidationExample1ViewModel()
@@ -60,6 +54,13 @@ namespace ValidationRulesTest.ViewModels
             {
                 ValidationMessage = "Password is required"
             });
+        }
+
+        public void Dispose()
+        {
+            _name?.Dispose();
+            _email?.Dispose();
+            _password?.Dispose();
         }
     }
 }

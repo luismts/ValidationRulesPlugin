@@ -19,5 +19,11 @@ namespace ValidationRulesTest.Views
             _viewModel = new ReactiveValidationExample1ViewModel();
             BindingContext = _viewModel;
         }
+
+        protected override void OnDisappearing()
+        {
+            _viewModel.Dispose();
+            base.OnDisappearing();
+        }
     }
 }

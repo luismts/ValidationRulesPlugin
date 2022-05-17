@@ -5,11 +5,68 @@
              xmlns:viewModels="clr-namespace:ValidationRulesTest.ViewModels;assembly=ValidationRulesTest"
              x:Class="ValidationRulesTest.Views.ReactiveValidationExample1"
              x:DataType="viewModels:ReactiveValidationExample1ViewModel">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <ScrollView>
+        
+        <Grid RowDefinitions="Auto,*,*,*"
+              Margin="10">
+        
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Start">
+                <Label Text="Reactive Validation Example 1" FontAttributes="Bold" 
+                       HorizontalOptions="Center"/>
+                <Label Text="This example shows how to use ReactiveUI's validation rules to validate a ViewModel." 
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        
+            <Grid Grid.Row="1"
+                  RowDefinitions="*,*">
+                <Entry Text="{Binding Name.Value}"/>
+                <Label Text="{Binding Name.Error}"
+                       TextColor="Red"
+                       IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger Binding="{Binding Name.IsValid}"
+                                     Value="False"
+                                     TargetType="Label">
+                            <Setter Property="IsVisible" Value="True"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Grid>
+            
+            <Grid Grid.Row="2"
+                  RowDefinitions="*,*">
+                <Entry Text="{Binding Email.Value}"/>
+                <Label Text="{Binding Email.Error}"
+                       TextColor="Red"
+                       IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger Binding="{Binding Email.IsValid}"
+                                     Value="False"
+                                     TargetType="Label">
+                            <Setter Property="IsVisible" Value="True"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Grid>
+            
+            <Grid Grid.Row="3"
+                  RowDefinitions="*,*">
+                <Entry Text="{Binding Password.Value}"/>
+                <Label Text="{Binding Password.Error}"
+                       TextColor="Red"
+                       IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger Binding="{Binding Password.IsValid}"
+                                     Value="False"
+                                     TargetType="Label">
+                            <Setter Property="IsVisible" Value="True"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Grid>
+        </Grid>
+    </ScrollView>
+    
 </ContentPage>

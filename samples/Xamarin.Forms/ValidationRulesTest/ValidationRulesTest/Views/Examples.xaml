@@ -51,6 +51,12 @@
                 x:Name="example8"
                 Clicked="example8_Clicked"
                 Text="Example 8" />
+            
+            <Button x:Name="reactiveValidationExample1"
+                    Clicked="ReactiveValidationExample1_Clicked"
+                    Text="Reactive Validation Example" >
+                
+            </Button>
 
         </StackLayout>
     </ContentPage.Content>
