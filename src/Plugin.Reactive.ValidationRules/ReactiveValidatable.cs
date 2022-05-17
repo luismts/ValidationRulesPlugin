@@ -84,10 +84,9 @@ namespace Plugin.Reactive.ValidationRules
         public Func<List<string>, string> ErrorMessageFormatter { get; set; }
 
         /// <summary>
-        /// Create an instance of a reactive validatable object.
+        /// Creates a new instance of the validatable object.
         /// </summary>
-        /// <param name="value">The value to be watched and validated.</param>
-        public ReactiveValidatable(T value)
+        public ReactiveValidatable()
         {
             ErrorMessageFormatter = (errorMessages) =>
             {
@@ -108,13 +107,22 @@ namespace Plugin.Reactive.ValidationRules
                 
                 return string.Empty;
             };
-            Value = value;
+            
             _validations = new List<IValidationRule<T>>();
             Errors = new List<string>();
-            _valueDisposable = this.WhenAnyValue(obj => obj.Value).Subscribe((val) =>
+            _valueDisposable = this.WhenAnyValue(x => x.Value).Subscribe(x =>
             {
                 Validate();
             });
+        }
+
+        /// <summary>
+        /// Create an instance of a reactive validatable object.
+        /// </summary>
+        /// <param name="value">The value to be watched and validated.</param>
+        public ReactiveValidatable(T value) : this()
+        {
+            Value = value;
         }
 
         /// <summary>
