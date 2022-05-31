@@ -47,5 +47,9 @@
         {
             Navigation.PushAsync(new Example8());
         }
+        private void ReactiveValidationExample1_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ReactiveValidationExample1());
+        }
     }
 }

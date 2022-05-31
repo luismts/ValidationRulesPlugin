@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="ValidationRulesTest.Views.ReactiveValidationExample1"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ValidationRulesTest.ViewModels;assembly=ValidationRulesTest"
+             x:DataType="viewModels:ReactiveValidationExample1ViewModel"
+             Title="Reactive Validation">
+
+    <Grid RowDefinitions="100,100,100,100,*"
+              Margin="10">
+
+        <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Start">
+            <Label Text="Reactive Validation Example 1" FontAttributes="Bold" 
+                       HorizontalOptions="Center"
+                       FontSize="Large"/>
+            <Label Text="This example shows how to use ReactiveUI's validation rules to validate a ViewModel." 
+                       HorizontalOptions="Center"
+                       Margin="10"
+                       HorizontalTextAlignment="Center"/>
+        </StackLayout>
+
+        <Grid Grid.Row="1"
+              VerticalOptions="Start"
+                  RowDefinitions="*,Auto">
+            <Entry Text="{Binding Name.Value}"
+                       Placeholder="Username"/>
+            <Label Text="{Binding Name.Error}"
+                       Grid.Row="1"
+                       TextColor="Red"
+                       IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger Binding="{Binding Name.IsValid}"
+                                     Value="False"
+                                     TargetType="Label">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </Grid>
+
+        <Grid Grid.Row="2"
+              VerticalOptions="Start"
+                  RowDefinitions="*,Auto">
+            <Entry Text="{Binding Email.Value}"
+                       Placeholder="Email"/>
+            <Label Text="bla bla"
+                       TextColor="Red"
+                       Grid.Row="1"
+                       IsVisible="True">
+                <!--<Label.Triggers>
+                    <DataTrigger Binding="{Binding Email.IsValid, Mode=TwoWay}"
+                                     Value="False"
+                                     TargetType="Label">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Email.IsValid, Mode=TwoWay}"
+                                 Value="True"
+                                 TargetType="Label">
+                        <Setter Property="IsVisible" Value="False"/>
+                    </DataTrigger>
+                </Label.Triggers>-->
+            </Label>
+        </Grid>
+
+        <Grid Grid.Row="3"
+              VerticalOptions="Start"
+              RowDefinitions="*,*">
+            <Entry Text="{Binding Password.Value}"
+                       Placeholder="Password"/>
+            <Label Text="{Binding Password.Error}"
+                       TextColor="Red"
+                       Grid.Row="1"
+                       IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger Binding="{Binding Password.IsValid}"
+                                     Value="False"
+                                     TargetType="Label">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </Grid>
+    </Grid>
+
+</ContentPage>
