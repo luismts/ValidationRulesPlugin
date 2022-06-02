@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ReactiveValidationExample1.xaml.cs">
+      <DependentUpon>ReactiveValidationExample1.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Example1.xaml.cs">
       <DependentUpon>Example1.xaml</DependentUpon>
     </Compile>

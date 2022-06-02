@@ -22,18 +22,22 @@
 
         <Grid Grid.Row="1"
               VerticalOptions="Start"
-                  RowDefinitions="*,Auto">
-            <Entry Text="{Binding Name.Value}"
-                       Placeholder="Username"/>
-            <Label Text="{Binding Name.Error}"
-                       Grid.Row="1"
-                       TextColor="Red"
-                       IsVisible="False">
+              RowDefinitions="*,Auto">
+            <Entry Text="{Binding Name.Value, Mode=TwoWay}"
+                   Placeholder="Username"/>
+            <Label Text="{Binding Name.ErrorMessage}"
+                   Grid.Row="1"
+                   TextColor="Red">
                 <Label.Triggers>
                     <DataTrigger Binding="{Binding Name.IsValid}"
-                                     Value="False"
-                                     TargetType="Label">
+                                 Value="False"
+                                 TargetType="Label">
                         <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Name.IsValid}"
+                                     Value="True"
+                                     TargetType="Label">
+                        <Setter Property="IsVisible" Value="False"/>
                     </DataTrigger>
                 </Label.Triggers>
             </Label>
@@ -42,33 +46,32 @@
         <Grid Grid.Row="2"
               VerticalOptions="Start"
                   RowDefinitions="*,Auto">
-            <Entry Text="{Binding Email.Value}"
-                       Placeholder="Email"/>
-            <Label Text="bla bla"
-                       TextColor="Red"
-                       Grid.Row="1"
-                       IsVisible="True">
-                <!--<Label.Triggers>
-                    <DataTrigger Binding="{Binding Email.IsValid, Mode=TwoWay}"
+            <Entry Text="{Binding Email.Value, Mode=TwoWay}"
+                   Placeholder="Email"/>
+            <Label Text="{Binding Email.ErrorMessage}"
+                    TextColor="Red"
+                    Grid.Row="1">
+                <Label.Triggers>
+                    <DataTrigger Binding="{Binding Email.IsValid}"
                                      Value="False"
                                      TargetType="Label">
                         <Setter Property="IsVisible" Value="True"/>
                     </DataTrigger>
-                    <DataTrigger Binding="{Binding Email.IsValid, Mode=TwoWay}"
+                    <DataTrigger Binding="{Binding Email.IsValid}"
                                  Value="True"
                                  TargetType="Label">
                         <Setter Property="IsVisible" Value="False"/>
                     </DataTrigger>
-                </Label.Triggers>-->
+                </Label.Triggers>
             </Label>
         </Grid>
 
         <Grid Grid.Row="3"
               VerticalOptions="Start"
               RowDefinitions="*,*">
-            <Entry Text="{Binding Password.Value}"
-                       Placeholder="Password"/>
-            <Label Text="{Binding Password.Error}"
+            <Entry Text="{Binding Password.Value, Mode=TwoWay}"
+                   Placeholder="Password"/>
+            <Label Text="{Binding Password.ErrorMessage}"
                        TextColor="Red"
                        Grid.Row="1"
                        IsVisible="False">
@@ -77,6 +80,11 @@
                                      Value="False"
                                      TargetType="Label">
                         <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Password.IsValid}"
+                                     Value="True"
+                                     TargetType="Label">
+                        <Setter Property="IsVisible" Value="False"/>
                     </DataTrigger>
                 </Label.Triggers>
             </Label>

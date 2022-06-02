@@ -1,28 +1,23 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ValidationRulesTest.ViewModels;
+﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using ValidationRulesTest.ViewModels;
 
-namespace ValidationRulesTest.Views
+namespace ValidationRulesTest
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ReactiveValidationExample1 : ContentPage
     {
-        ReactiveValidationExample1ViewModel _viewModel;
+        ReactiveValidationExample1ViewModel _context;
         public ReactiveValidationExample1()
         {
             InitializeComponent();
-            _viewModel = new ReactiveValidationExample1ViewModel();
-            BindingContext = _viewModel;
+
+            _context = new ReactiveValidationExample1ViewModel();
+            BindingContext = _context;
         }
 
         protected override void OnDisappearing()
         {
-            _viewModel.Dispose();
+            _context.Dispose();
             base.OnDisappearing();
         }
     }
