@@ -50,6 +50,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\src\Plugin.Reactive.ValidationRules\Plugin.Reactive.ValidationRules.csproj" />
 	  <ProjectReference Include="..\..\..\..\src\ValidationRules\Plugin.ValidationRules.csproj" />
 	</ItemGroup>
 
