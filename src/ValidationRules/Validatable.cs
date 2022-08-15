@@ -130,7 +130,11 @@ namespace Plugin.ValidationRules
         public bool IsValid
         {
             get => _isValid;
-            set => SetProperty(ref _isValid, value);
+            set 
+            { 
+                SetProperty(ref _isValid, value);
+                IsValidChanged?.Invoke(this, new ValueChangedEventArgs<bool>() { OldValue = _isValid, NewValue = value });
+            }
         }
 
         private bool _hasErrors;
@@ -151,6 +155,7 @@ namespace Plugin.ValidationRules
 
         #region Events
         public event EventHandler<ValueChangedEventArgs<T>> ValueChanged;
+        public event EventHandler<ValueChangedEventArgs<bool>> IsValidChanged;
         #endregion
 
         #region Methods
